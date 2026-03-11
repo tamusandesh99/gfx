@@ -1,0 +1,71 @@
+/* SuperSunday.scss - Localized Styles */
+.super-sunday-layout {
+  --sunday-pink: #d63384; // Private variable just for this GFX
+  
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .header-meta {
+    font-family: 'JetBrains Mono';
+    letter-spacing: 5px;
+    color: var(--sunday-pink);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+
+  .main-title {
+    font-size: 6.5rem;
+    font-weight: 900;
+    color: var(--sunday-pink);
+    line-height: 0.8;
+    margin-bottom: 30px;
+  }
+
+  .grid-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+
+    .portrait-area {
+      width: 300px;
+      height: 400px;
+      // opacity: 0.5; // Placeholder for player images
+    }
+
+    .slots-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .row {
+        height: 75px;
+        background: rgba(255, 255, 255, 0.9);
+        border-top: 4px solid var(--sunday-pink);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        
+        &.short { width: 75%; align-self: center; }
+
+        .divider { width: 2px; height: 35px; background: var(--sunday-pink); opacity: 0.2; }
+      }
+    }
+  }
+
+  .footer-brand {
+    margin-top: 50px;
+    display: flex;
+    gap: 40px;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    opacity: 0.7;
+  }
+}

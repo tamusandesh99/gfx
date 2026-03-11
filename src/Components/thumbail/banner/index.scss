@@ -1,0 +1,106 @@
+.banner-content {
+  --orange: #ff4d00;
+  --navy: #0a192f;
+  --white: #ffffff;
+
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  
+  /* Top Section Styling */
+  .top-branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    .platform-tag {
+      font-size: 1rem;
+      letter-spacing: 5px;
+      font-weight: 800;
+      color: var(--white);
+      border: 2px solid var(--white);
+      padding: 2px 15px;
+    }
+  }
+
+  /* Aggressive Typography Section */
+  .main-title-stack {
+    transform: skewX(-10deg); // The "Esports Tilt"
+    
+    .sub-title {
+      font-size: 5rem;
+      color: var(--white);
+      line-height: 0.8;
+      margin-bottom: -10px;
+      text-shadow: 4px 4px 0px var(--navy);
+    }
+
+    .main-title {
+      font-size: 11rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 0.9;
+      -webkit-text-stroke: 3px var(--navy);
+      paint-order: stroke fill;
+      filter: drop-shadow(10px 10px 0px var(--navy));
+    }
+
+    .decoration-line {
+      height: 10px;
+      background: var(--orange);
+      width: 110%;
+      margin-left: -5%;
+      margin-top: 10px;
+      box-shadow: 0 0 20px rgba(255, 77, 0, 0.4);
+    }
+  }
+
+  /* Prize Pool Section */
+  .prize-callout {
+    margin-top: 40px;
+    font-family: 'Oswald', sans-serif;
+    
+    .prize-row-top {
+      font-size: 9rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 0.75;
+    }
+
+    .prize-row-bottom {
+      font-size: 8rem;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 0.75;
+      text-shadow: 5px 5px 0px var(--navy);
+    }
+  }
+
+  /* Professional Partner Bar */
+  .footer-logos {
+    position: absolute;
+    bottom: -150px; // Adjusted for viewport height
+    background: var(--white);
+    color: var(--navy);
+    width: 100vw;
+    padding: 15px 0;
+    transform: skewY(-1deg); // Slight tilt for style
+
+    .logo-strip {
+      transform: skewY(1deg); // Flatten text back
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      font-weight: 900;
+      font-size: 1.2rem;
+
+      .dot { color: var(--orange); }
+    }
+  }
+}

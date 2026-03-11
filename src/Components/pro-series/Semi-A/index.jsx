@@ -2,72 +2,47 @@ import React from 'react';
 import './index.scss';
 
 const SemiA = () => {
-  // Generates ranks 4 through 16 for the table side
-  const tableRanks = Array.from({ length: 13 }, (_, i) => i + 4);
+  const leftTeams = Array.from({ length: 10 }, (_, i) => i + 1);
+  const rightTeams = Array.from({ length: 10 }, (_, i) => i + 11);
+
+  const RankingSide = ({ ranks }) => (
+    <div className="ranking-table">
+      <div className="thead-row">
+        <span>#</span>
+        <span>TEAMS</span>
+        <span>WWCD</span>
+        <span>PP</span>
+        <span>FP</span>
+        <span>TOTAL</span>
+      </div>
+      <div className="tbody-content">
+        {ranks.map((rank) => (
+          <div key={rank} className="data-row">
+            <span className="rank-box">{rank}</span>
+            <span className="team-name-cell">--- TEAM NAME ---</span>
+            <span>0</span>
+            <span>0</span>
+            <span>0</span>
+            <span className="stat-total">0</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className="app-container">
-      <div className="pubg-layout">
-        
-        {/* Header Section */}
-        <header className="header-ui">
-          <div className="ngc-badge">NGC</div>
-          <div className="title-wrap">
-            <h1>NGC PRO <span>SERIES</span></h1>
-            <div className="accent-line"></div>
-          </div>
+      <div className="rankings-wrapper">
+        <header className="header-section">
+          <div className="ngc-top-label">NGC ESPORTS</div>
+          <h1>OVERALL RANKINGS</h1>
+          <div className="match-pill">NGC Pro Series | SEMI B </div>
         </header>
 
-        {/* Main Leaderboard Grid */}
-        <main className="main-grid">
-          
-          {/* Left Column: Top 3 Winners */}
-          <section className="podium-side">
-            {[1, 2, 3].map((pos) => (
-              <div key={pos} className="podium-card">
-                <div className="rank-diamond">
-                  <span className="num">{pos}</span>
-                </div>
-                <div className="empty-name-bar"></div>
-              </div>
-            ))}
-          </section>
-
-          {/* Right Column: Remaining Teams */}
-          <section className="table-side">
-            <div className="stats-table">
-              {/* Table Headers */}
-              <div className="thead">
-                <span>RANK</span>
-                <span>TEAM NAME</span>
-                <span>PLACE</span>
-                <span>WWCD</span>
-                <span>KILLS</span>
-                <span>TOTAL</span>
-              </div>
-              
-              {/* Table Rows */}
-              <div className="tbody">
-                {tableRanks.map((rank) => (
-                  <div key={rank} className="trow">
-                    <span className="row-rank">{rank}</span>
-                    <div className="row-empty"></div>
-                    <span>-</span>
-                    <span>-</span>
-                    <span>-</span>
-                    <span className="row-total">-</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+        <main className="tables-grid">
+          <RankingSide ranks={leftTeams} />
+          <RankingSide ranks={rightTeams} />
         </main>
-
-        {/* Footer Banner */}
-        <footer className="footer-tag">
-          SEMI A
-        </footer>
-
       </div>
     </div>
   );

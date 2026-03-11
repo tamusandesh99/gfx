@@ -1,34 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+/* App.scss - The Global Foundation */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=JetBrains+Mono:wght@500;800&display=swap');
+
+:root {
+  /* Common variables used across all designs */
+  --bg-blue: #e0f2f7; 
+  --bg-image: url('assets/bg1.png');
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background-color: #050505;
-  color: white;
-  font-family: 'JetBrains Mono', monospace;
-  overflow-x: hidden;
+  background-color: var(--bg-blue);
+  font-family: 'Oswald', sans-serif;
+  overflow: hidden; 
 }
 
 .app-container {
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  // Deep radial glow to simulate studio lighting
-  background: radial-gradient(circle at center, #1a1508 0%, #050505 100%);
   
-  // Grid overlay for that tactical PUBG look
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
-    mask-image: radial-gradient(circle, black, transparent 80%);
-    pointer-events: none;
-  }
+  /* Shared Background Property */
+  background: linear-gradient(rgba(224, 242, 247, 0.4), rgba(224, 242, 247, 0.6)), var(--bg-image);
+  background-size: cover;
+  background-position: center;
 }
