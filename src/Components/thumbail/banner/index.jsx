@@ -1,94 +1,68 @@
 import React from 'react';
 import './index.scss';
-import bgImg3 from '../../../../public/pics/bg3.png';
+import bgLogo from '../../../../public/pics/bg1.png'; // Your blue logo
+import bgPubg from '../../../../public/pics/bg2.png'; // Your HD wallpaper
 import imgErangel from '../../../../public/pics/erangle.jpg';
 import imgMiramar from '../../../../public/pics/miramar.png';
 import imgRondo from '../../../../public/pics/rondo.png';
 
 const ProBanner = () => {
   return (
-    <div className="app-container" style={{ "--bg-concrete": `url(${bgImg3})` }}>
-      
-      {/* MASSIVE HAZARD & 3D BRANDING GRID */}
-      <div className="security-layer">
-        {[...Array(12)].map((_, i) => (
-          <div key={i} className="security-row">
-            <div className="block-tag-3d">NGC ESPORTS</div>
-            <div className="hazard-emblem">
-              <div className="tri">!</div>
-              <span>NGC ESPORTS PROPERTY</span>
+    <div className="glass-canvas" style={{ "--bg-pubg": `url(${bgPubg})` }}>
+      {/* ATMOSPHERIC GLOWS (Smoke/Shine) */}
+      <div className="ambient-glow blue"></div>
+      <div className="ambient-glow yellow"></div>
+
+      {/* TOP: LOGO HEADER */}
+      <header className="glass-header">
+        <div className="header-inner">
+          <img src={bgLogo} alt="NGC" className="side-logo" />
+          <div className="brand-data">
+            <h1>NGC ESPORTS</h1>
+            <span>OPERATIONAL HUB // @ngc-esports</span>
+          </div>
+          <div className="glare-line header-glare"></div>
+        </div>
+      </header>
+
+      {/* CENTER: MASSIVE TITLE ZONE */}
+      <main className="glass-main">
+        <div className="title-stack">
+          <h2 className="event-title">PRO SERIES</h2>
+          
+          <div className="prize-pod">
+            <div className="glare-shine"></div>
+            <div className="pod-content">
+              <label>REWARD_BOUNTY</label>
+              <div className="value">
+                <span className="unit">$</span>100
+              </div>
             </div>
+          </div>
+        </div>
+      </main>
+
+      {/* BOTTOM: DATA & MAPS */}
+      <footer className="glass-footer">
+        {[
+          { label: 'TIME', value: '20:00 CET', img: imgErangel, name: 'ERANGEL' },
+          { label: 'DISCORD', value: '@ngc-esports', img: imgMiramar, name: 'MIRAMAR' },
+          { label: 'FORMAT', value: 'TPP SQUAD', img: imgRondo, name: 'RONDO' }
+        ].map((item, i) => (
+          <div key={i} className="data-card">
+            <div className="map-frame"><img src={item.img} alt={item.name} /></div>
+            <div className="card-info">
+              <label>{item.label}</label>
+              <span>{item.value}</span>
+            </div>
+            <div className="map-badge">{item.name}</div>
+            <div className="glare-line card-glare"></div>
           </div>
         ))}
-      </div>
+      </footer>
 
-      <div className="urban-zoom-wrapper">
-        
-        <div className="hazard-tape top">
-          <div className="tape-inner">
-            WARNING // NGC ESPORTS AUTHORIZED // WARNING // NGC ESPORTS AUTHORIZED
-          </div>
-        </div>
-
-        <div className="urban-layout">
-          
-          <div className="intel-stack">
-            {/* Direct Hazard Sign in the stack */}
-            <div className="stack-hazard">
-              <div className="tri-large">!</div>
-              <div className="text-wrap">
-                <strong>NGC ESPORTS</strong>
-                <small>RESTRICTED AREA</small>
-              </div>
-            </div>
-
-            {[
-              { name: 'ERANGEL', img: imgErangel, rot: '-2deg' },
-              { name: 'MIRAMAR', img: imgMiramar, rot: '3deg' },
-            ].map((map, i) => (
-              <div key={i} className="intel-card" style={{ transform: `rotate(${map.rot})` }}>
-                <div className="red-line-top"></div>
-                <img src={map.img} alt={map.name} />
-                <div className="intel-label">INTEL: {map.name}</div>
-              </div>
-            ))}
-          </div>
-
-          <main className="heavy-poster">
-            {/* HUGE STAMPED HAZARD */}
-            <div className="poster-hazard-stamp">
-              <div className="stamp-inner">NGC ESPORTS</div>
-            </div>
-
-            <div className="poster-inner">
-              <span className="sub-head">OFFICIAL TOURNAMENT BRIEF</span>
-              <h1 className="main-head">PRO SERIES</h1>
-              
-              <div className="bounty-stencil">
-                <span className="b-label">PRIZE POOL</span>
-                <span className="b-val">$100</span>
-              </div>
-
-              <div className="footer-meta">
-                <span>DAILY SCRIMS</span>
-                <span className="sep">|</span>
-                <span>21:00 PM</span>
-                <span className="sep">|</span>
-                <span>MOBILE TPP</span>
-              </div>
-            </div>
-            <div className="poster-tear"></div>
-          </main>
-
-        </div>
-
-        <div className="hazard-tape bottom">
-          <div className="tape-inner">
-            PROPERTY OF NGC ESPORTS // DO NOT USE WITHOUT PERMISSION // NGC ESPORTS
-          </div>
-        </div>
-
-      </div>
+      {/* FRAME NOISE OVERLAY */}
+      <div className="vignette"></div>
     </div>
   );
 };

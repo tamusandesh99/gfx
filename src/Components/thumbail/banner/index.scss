@@ -1,165 +1,123 @@
-/* =========================================
-   NGC ESPORTS - MAX HAZARD SECURITY STYLE
-   ========================================= */
+/* POLISHED GLASS COMMAND CENTER THEME */
+$ngc-blue: #0088ff;
+$ngc-yellow: #f4d03f; // Added yellow for "Smoke/Shine" contrast
+$glass-dark: rgba(0, 0, 0, 0.7);
+$glass-light: rgba(255, 255, 255, 0.05);
 
-$safety-orange: #ffa502;
-$hazard-red: #ff4757;
-$deep-black: #0d0d0d;
-$paper-white: #ffffff;
-
-.app-container {
-  width: 100vw;
-  height: 100vh;
-  background-image: var(--bg-concrete);
+.glass-canvas {
+  width: 1920px;
+  height: 1080px;
+  background-image: var(--bg-pubg);
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
   position: relative;
-  font-family: 'Inter', sans-serif;
-}
-
-/* 1. THE SECURITY LAYER (Repeating Watermarks) */
-.security-layer {
-  position: absolute;
-  inset: -10%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  transform: rotate(-5deg);
-  opacity: 0.45;
-  mix-blend-mode: hard-light;
-  z-index: 1;
-  pointer-events: none;
-
-  .security-row {
-    display: flex;
-    align-items: center;
-    gap: 100px;
-    white-space: nowrap;
-  }
-}
-
-.block-tag-3d {
-  font-size: 14rem;
-  font-weight: 950;
-  color: #1a1a1a;
-  text-shadow: 
-    1px 1px 0px #333,
-    3px 3px 0px #444,
-    10px 10px 20px rgba(0,0,0,0.8);
-}
-
-.hazard-emblem {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background: $safety-orange;
-  padding: 10px 30px;
-  color: #000;
-  font-weight: 900;
-  font-size: 2.5rem;
-  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
-  
-  .tri {
-    background: #000;
-    color: $safety-orange;
-    padding: 0 15px;
-    border-radius: 4px;
-  }
-}
-
-/* 2. THE POSTER COMPONENTS */
-.urban-zoom-wrapper {
-  transform: scale(0.85);
-  z-index: 10;
-  position: relative;
-}
-
-.poster-hazard-stamp {
-  position: absolute;
-  top: -30px; right: -30px;
-  background: $hazard-red;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
   color: #fff;
-  padding: 10px 20px;
-  transform: rotate(15deg);
-  font-weight: 950;
-  font-size: 1.5rem;
-  box-shadow: 5px 5px 0px #000;
-  z-index: 100;
-  border: 4px solid #fff;
 }
 
-.stack-hazard {
-  background: $safety-orange;
-  padding: 15px;
-  display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-  border: 4px solid #000;
-  box-shadow: 10px 10px 0px rgba(0,0,0,0.3);
-
-  .tri-large {
-    font-size: 3rem;
-    font-weight: 950;
-    background: #000;
-    color: $safety-orange;
-    padding: 0 15px;
-  }
-
-  .text-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    strong { font-size: 1.2rem; font-weight: 900; color: #000; line-height: 1; }
-    small { font-weight: 800; color: #000; opacity: 0.8; margin-top: 4px; }
-  }
+/* 1. ATMOSPHERIC SHINE/SMOKE (Floating Glows) */
+.ambient-glow {
+  position: absolute; width: 600px; height: 600px;
+  border-radius: 50%; opacity: 0.1; filter: blur(150px);
+  pointer-events: none; z-index: 1;
+  animation: atmospheric-pulse 8s infinite ease-in-out;
+  
+  &.blue { background: $ngc-blue; top: 10%; left: 5%; animation-delay: 0s; }
+  &.yellow { background: $ngc-yellow; bottom: 10%; right: 5%; animation-delay: 4s; }
 }
 
-/* 3. CORE DESIGN (Bigger Poster) */
-.heavy-poster {
-  background: #fff;
-  width: 720px;
-  padding: 20px;
+@keyframes atmospheric-pulse {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.15; transform: scale(1.1); }
+}
+
+/* 2. GLASS LAYERS & GLARE EFFECTS */
+.glass-header, .prize-pod, .data-card {
+  backdrop-filter: blur(15px);
+  background: $glass-dark;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
   position: relative;
-  box-shadow: 50px 50px 100px rgba(0,0,0,0.8);
+  overflow: hidden;
+  z-index: 10;
+}
 
-  .poster-inner {
-    border: 10px solid #000;
-    padding: 70px 50px;
-    text-align: center;
+/* THE "GLARE" LINE EFFECT */
+.glare-line {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
+  transition: 0.3s;
+  pointer-events: none;
+  animation: glare-sweep 10s infinite;
+  opacity: 0.2;
+}
 
-    .main-head {
-      font-size: 10rem;
-      font-weight: 950;
-      letter-spacing: -8px;
-      margin: 30px 0;
-    }
+@keyframes glare-sweep {
+  0% { transform: translateX(-100%); }
+  10%, 100% { transform: translateX(100%); }
+}
 
-    .bounty-stencil {
-      background: #000;
-      color: $safety-orange;
-      padding: 40px;
-      margin-bottom: 30px;
-      .b-val { font-size: 9rem; font-weight: 950; }
-    }
+/* HEADER */
+.glass-header {
+  padding: 30px 60px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+  
+  .header-inner {
+    display: flex; align-items: center; gap: 30px;
+    padding: 20px 40px; border-radius: 15px; background: rgba(0,0,0,0.4);
+    position: relative; overflow: hidden;
+  }
+  .side-logo { height: 80px; }
+  .brand-data {
+    h1 { font-size: 5rem; font-weight: 950; margin: 0; letter-spacing: -2px; line-height: 1; }
+    span { font-size: 1.2rem; color: $ngc-blue; font-weight: 800; letter-spacing: 5px; }
   }
 }
 
-/* HAZARD TAPES */
-.hazard-tape {
-  position: absolute;
-  width: 150%; height: 50px;
-  background: $safety-orange;
-  display: flex; align-items: center; justify-content: center;
-  border-top: 6px solid #000;
-  border-bottom: 6px solid #000;
-  z-index: 50;
+/* MAIN BODY */
+.glass-main {
+  flex: 1; display: flex; align-items: center; justify-content: center; z-index: 5;
+  .title-stack { text-align: center; }
 
-  .tape-inner { font-weight: 950; font-size: 1.1rem; letter-spacing: 4px; color: #000; }
+  .event-title {
+    font-size: 16rem; font-weight: 950; line-height: 0.8; letter-spacing: -10px; margin-bottom: 30px;
+  }
 
-  &.top { top: -40px; transform: rotate(-1deg); }
-  &.bottom { bottom: -40px; background: $hazard-red; color: #fff; transform: rotate(1deg); .tape-inner { color: #fff; } }
+  .prize-pod {
+    padding: 30px 100px; border-radius: 20px; display: inline-block;
+    border-color: rgba($ngc-blue, 0.4);
+    
+    .pod-content { position: relative; z-index: 5; }
+    .label { font-size: 1.6rem; letter-spacing: 12px; color: $ngc-blue; font-weight: 900; margin-bottom: 10px; }
+    .value { font-size: 10rem; font-weight: 950; line-height: 1; }
+    .unit { font-size: 4rem; vertical-align: top; margin-right: 15px; }
+  }
+}
+
+/* FOOTER DOCK */
+.glass-footer {
+  height: 350px; display: flex; gap: 30px; padding: 0 60px 60px;
+  z-index: 10;
+
+  .data-card {
+    flex: 1; border-radius: 15px; display: flex; flex-direction: column; overflow: hidden;
+    
+    .map-frame { height: 140px; overflow: hidden; img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; } }
+    
+    .card-info {
+      flex: 1; padding: 25px; display: flex; flex-direction: column; justify-content: center;
+      label { font-size: 1rem; color: $ngc-blue; font-weight: 900; letter-spacing: 3px; }
+      span { font-size: 2.8rem; font-weight: 950; color: #fff; }
+    }
+    .map-badge { position: absolute; top: 10px; right: 10px; font-size: 0.7rem; font-weight: 900; background: rgba(0,0,0,0.5); padding: 5px 10px; }
+  }
+}
+
+.vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.8) 100%);
+  pointer-events: none;
 }
