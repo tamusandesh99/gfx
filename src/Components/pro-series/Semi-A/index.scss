@@ -1,22 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=JetBrains+Mono:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=JetBrains+Mono:wght@800&display=swap");
 
-/* --- FUNCTIONAL THEME VARIABLES --- */
-$accent-main: #B8860B;  // Dark Gold
-$accent-sub:  #001A72;  // Navy Blue
-$bg-page:     #252525;  // Cream/Bone Background
-$bg-card:     #FFFFFF;  // White Tables
-$text-dark:   #001A72;  // Navy text for high contrast
-$text-light:  #B8860B;
+/* =========================
+   1. COLOR & THEME TOKENS
+   (High-Contrast Esports)
+   ========================= */
 
-/* --- Global Container --- */
+//Group A
+// $color-accent: #19d7b1;
+// $color-bg-main: #2c373c;
+// $color-card: #1a2226;
+// $color-text: #e1e8e9;
+// $color-text-dark: #0b1012;
+// $color-danger: #f90808;
+// $color-brand-text: #ebebeb;
+// $color-header-bg: #0b1012;
+// $color-header-text: #ffffff;
+// $qualified-row-color: #93fad6;
+// $color-row-bg: #ced1d2;
+// $color-rank-bg: rgb(179, 177, 177);
+// $color-rank-text: #ffffff;
+
+// $opacity-medium: 0.4;
+// $opacity-light: 0.2;
+// $opacity-subtle: 0.1;
+// $scanline-color: rgba(81, 212, 166, 0.03);
+
+//Group B
+$color-accent: #4ae3a8;
+$color-bg-main: #07130f;
+$color-card: #040b08;
+$color-text: #eafff7;
+$color-text-dark: #020605;
+$color-danger: #ff3b5c;
+$color-brand-text: #ffffff;
+$color-header-bg: #020706;
+$color-header-text: #f6f9f8;
+$qualified-row-color: #24d9a2;
+$color-row-bg: #ccfff1;
+$color-rank-bg: #99ffe4;
+$color-rank-text: #003d2e;
+$scanline-color: rgba(0, 255, 156, 0.12);
+
+$opacity-medium: 0.5;
+$opacity-light: 0.15;
+$opacity-subtle: 0.15;
+
+//Group C
+// $color-accent: #bf65ec;
+// $color-bg-main: #141417;
+// $color-card: #1c1c21;
+// $color-text: #e8e8ed;
+// $color-text-dark: #08080a;
+// $color-danger: #d94c6a;
+// $color-brand-text: #ffffff;
+// $color-header-bg: #08080a;
+// $color-header-text: #ffffff;
+// $qualified-row-color: #a399cc;
+// $color-row-bg: #cfcfd6;
+// $color-rank-bg: #b0b0ba;
+// $color-rank-text: #ffffff;
+
+// $opacity-medium: 0.35;
+// $opacity-light: 0.15;
+// $opacity-subtle: 0.1;
+// $scanline-color: rgba(138, 126, 181, 0.02);
+
+//Group D
+// $color-accent: #c63f3f;
+// $color-bg-main: #1c1c1e;
+// $color-card: #252528;
+// $color-text: #e6e6e6;
+// $color-text-dark: #0d0d0d;
+// $color-danger: #ff3333;
+// $color-brand-text: #ffffff;
+// $color-header-bg: #0d0d0d;
+// $color-header-text: #ffffff;
+// $qualified-row-color: #c78080;
+// $color-row-bg: #d6d6d6;
+// $color-rank-bg: #bdbdbd;
+// $color-rank-text: #ffffff;
+
+// $opacity-medium: 0.4;
+// $opacity-light: 0.2;
+// $opacity-subtle: 0.1;
+// $scanline-color: rgba(163, 75, 75, 0.02);
+
+// Keke
+// $color-accent: #ff4fa3;
+// $color-bg-main: #1a0f15;
+// $color-card: #140a10;
+// $color-text: #fff5fa;
+// $color-text-dark: #12060c;
+// $color-danger: #ff3b3b;
+// $color-brand-text: #ffffff;
+// $color-header-bg: #0d0509;
+// $color-header-text: #ffffff;
+// $qualified-row-color: #ff85c2;
+// $color-row-bg: #ffe6f1;
+// $color-rank-bg: #ffb3d6;
+// $color-rank-text: #ffffff;
+// $scanline-color: rgba(255, 79, 163, 0.06);
+$opacity-medium: 0.5;
+$opacity-light: 0.15;
+$opacity-subtle: 0.15;
+
+/*
+   2. GLOBAL CONTAINER
+   ========================= */
+
+.bg-texture-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: $color-bg-main;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  opacity: $opacity-medium;
+  filter: grayscale(30%) contrast(110%);
+}
+
 .app-container {
   width: 100vw;
   height: 100vh;
-  background-color: $bg-page;
+  background-color: $color-bg-main;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   position: relative;
   overflow: hidden;
 
@@ -24,39 +135,22 @@ $text-light:  #B8860B;
     content: "";
     position: absolute;
     inset: 0;
-    // Scanline texture
-    background: repeating-linear-gradient(0deg, rgba($text-dark, 0.2) 0px, rgba($text-dark, 0.2) 1px, transparent 1px, transparent 2px);
     pointer-events: none;
     z-index: 5;
+    background: repeating-linear-gradient(
+      0deg,
+      $scanline-color 0px,
+      $scanline-color 1px,
+      transparent 1px,
+      transparent 2px
+    );
   }
 }
 
-/* --- Centered Brand Header --- */
-.brand-header-top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 10px;
-    width: 100%;
+/* =========================
+   3. RIBBONS (BACKGROUND)
+   ========================= */
 
-    .brand-text {
-        font-family: 'JetBrains Mono', monospace;
-        font-weight: 800;
-        font-size: 2rem;
-        color: $bg-card;
-        letter-spacing: 8px;
-        white-space: nowrap;
-    }
-    .brand-line {
-        flex-grow: 1;
-        height: 3px;
-        background: $accent-main;
-        opacity: 0.3;
-    }
-}
-
-/* --- Static Ribbon Background --- */
 .ribbon-container {
   position: absolute;
   inset: 0;
@@ -66,26 +160,83 @@ $text-light:  #B8860B;
 
 .moving-ribbon {
   position: absolute;
-  background: $accent-sub; // Use the second accent color for the ribbons
-  opacity: 0.20;           // Bump up the visibility
-  filter: blur(30px);      // Softens the edges to look like spray paint
+  background: $color-accent;
+  opacity: $opacity-light;
+  filter: blur(30px);
   height: 120px;
   width: 150%;
   transform-origin: center;
   pointer-events: none;
 }
 
-.r1 { transform: rotate(-25deg); top: 5%; left: -10%; }
-.r2 { transform: rotate(15deg); top: 35%; left: -5%; height: 40px; opacity: 0.05; }
-.r3 { transform: rotate(-45deg); bottom: 5%; left: -10%; }
-.r4 { transform: rotate(10deg); top: -5%; right: -10%; height: 120px; opacity: 0.03; }
-.r5 { transform: rotate(-15deg); bottom: 25%; right: -5%; height: 50px; }
+.r1 {
+  transform: rotate(-25deg);
+  top: 10%;
+  left: -10%;
+}
+.r2 {
+  transform: rotate(15deg);
+  top: 35%;
+  left: -5%;
+  height: 40px;
+  opacity: $opacity-subtle;
+}
+.r3 {
+  transform: rotate(-45deg);
+  bottom: 5%;
+  left: -10%;
+}
+.r4 {
+  transform: rotate(10deg);
+  top: -5%;
+  right: -10%;
+  height: 120px;
+  opacity: $opacity-subtle;
+}
+.r5 {
+  transform: rotate(-15deg);
+  bottom: 25%;
+  right: -5%;
+  height: 50px;
+}
 
-/* --- Main Layout --- */
+/* =========================
+   4. MAIN LAYOUT
+   ========================= */
+
 .main-layout {
   width: 94%;
   max-width: 1300px;
   z-index: 10;
+}
+
+/* =========================
+   5. HEADER
+   ========================= */
+
+.brand-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 10px;
+  width: 100%;
+
+  .brand-text {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 800;
+    font-size: 2rem;
+    color: $color-brand-text;
+    letter-spacing: 8px;
+    white-space: nowrap;
+  }
+
+  .brand-line {
+    flex-grow: 1;
+    height: 3px;
+    background: $color-accent;
+    opacity: 0.8;
+  }
 }
 
 .standings-header {
@@ -95,8 +246,8 @@ $text-light:  #B8860B;
   margin-bottom: 15px;
 
   .ngc-label {
-    background: $accent-main;
-    color: $text-light;
+    background: $color-accent;
+    color: $color-text-dark;
     padding: 4px 15px;
     font-size: 1rem;
     font-weight: 900;
@@ -106,11 +257,12 @@ $text-light:  #B8860B;
     font-size: 6rem;
     line-height: 0.85;
     margin: 8px 0;
-    color: $text-light;
+    color: $color-text;
     letter-spacing: -3px;
-    .highlight-text { 
-        color: $accent-main; 
-        text-shadow: 4px 4px 0 $text-dark; 
+
+    .highlight-text {
+      color: $color-accent;
+      text-shadow: 4px 4px 0 $color-header-bg;
     }
   }
 
@@ -118,155 +270,339 @@ $text-light:  #B8860B;
     display: flex;
     align-items: center;
     gap: 15px;
-    color: rgba($text-light, 0.7);
-    font-family: 'JetBrains Mono', monospace;
+    color: rgba($color-header-text, 1);
+    font-family: "JetBrains Mono", monospace;
     font-weight: 800;
-    .ribbon-line { 
-        width: 60px; height: 8px; 
-        background: $accent-main; 
-        border-right: 15px solid $text-dark; 
+
+    .ribbon-line {
+      width: 60px;
+      height: 8px;
+      background: $color-accent;
+      border-right: 15px solid $color-card;
+      color: $color-danger;
     }
   }
 }
 
+/* =========================
+   6. DIVIDER
+   ========================= */
+
 .industrial-ribbon-divider {
-  background: $accent-main;
+  background: $color-accent;
   height: 24px;
   width: 100%;
   margin-bottom: 25px;
   display: flex;
   align-items: center;
-  box-shadow: 0 5px 15px rgba($text-dark, 0.4);
+
   .ribbon-text {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 0.7rem;
     font-weight: 900;
-    color: $text-light;
+    color: $color-text-dark;
     letter-spacing: 5px;
     padding-left: 20px;
     opacity: 0.8;
   }
 }
 
+/* =========================
+   7. QUALIFY BOX
+   ========================= */
+
 .qualify-bracket {
-  text-align: right;
-  .live-dot { color: $accent-sub; animation: pulse 1s infinite; margin-right: 5px; }
+  .live-dot {
+    color: $color-danger;
+    margin-right: 5px;
+  }
+
   .qualify-box {
-    background: $bg-card;
-    border: 4px solid $accent-main;
-    padding: 8px 25px;
+    background: $color-card;
+    border-left: 6px solid $color-accent;
+    padding: 8px 35px;
     font-weight: 900;
-    font-size: 1.1rem;
-    color: $text-dark;
+    color: $color-text;
+    /* MATCHING THE TABLE SLANT */
+    transform: skew(-15deg);
+
+    span {
+      transform: skew(15deg);
+      display: inline-block;
+    } // Un-skew the text inside
   }
 }
 
-/* --- Tables --- */
+/* =========================
+   8. TABLES (Photoshop-Ready)
+   ========================= */
+
 .dual-tables {
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
 
 .table-wrapper {
   flex: 1;
-  background: $bg-card;
-  box-shadow: 12px 12px 0 rgba($text-dark, 0.5);
 }
 
 .table-header {
   display: grid;
-  grid-template-columns: 65px 1.5fr 70px 70px 70px 95px;
-  background: $text-dark;
-  color: $text-light;
+  // FIXED COLUMNS: Must match rows exactly for PS lining
+  grid-template-columns: 50px 1.5fr 65px 65px 65px 85px;
+  background: $color-header-bg;
+  color: $color-header-text;
   text-align: center;
+  margin-bottom: 2px; // Very tight gap to the first row
+
   .h-item {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.2rem; 
-    font-weight: 800;
-    padding: 14px 0;
-    &.col-team { text-align: left; padding-left: 40px; color: $accent-main; }
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 12px 0;
+    letter-spacing: 1.5px;
+    opacity: 0.5;
+
+    &.col-team {
+      text-align: left;
+      padding-left: 20px;
+    }
   }
 }
 
 .table-row {
   display: grid;
-  grid-template-columns: 65px 1.5fr 70px 70px 70px 95px;
-  height: 54px;
+  grid-template-columns: 50px 1.5fr 65px 65px 65px 85px;
+  height: 44px;
   align-items: center;
-  border-bottom: 1px solid rgba($bg-page, 0.2);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: $text-dark;
-  
+  margin-bottom: 4px; // Tightened gap for a cleaner stack
+  font-size: 1.1rem;
+  font-weight: 800;
+
+  background: $color-row-bg;
+  border-radius: 6px;
+
+  // MATERIAL BORDERS: Subtle definition for Photoshop masking
+  border-top: 1px solid rgba($color-text-dark, 0.05);
+  border-bottom: 1px solid rgba($color-text-dark, 0.1);
+  overflow: hidden;
+
   .col-rank {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 800;
-    color: darken($accent-main, 10%);
+    font-family: "JetBrains Mono", monospace;
+    background: $color-rank-bg;
+    border-right: 1px solid rgba($color-text-dark, 0.05);
   }
-  .col-team { padding-left: 40px; }
 
+  .col-team {
+    padding-left: 20px;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  /* TOP 2 HIGHLIGHT (QUALIFIED) */
   &.qualified-row {
-    background: rgba($accent-main, 0.1);
-    box-shadow: inset 8px 0 0 0 $accent-main; 
-    .col-rank { color: $accent-main; }
+    // The main row body becomes the accent color
+    background: $color-accent;
+    color: $color-text-dark;
+    border-bottom: 2px solid rgba($color-header-bg, 0.2);
+
+    .col-rank {
+      // Darker version of the header/card background for the rank tab
+      background: rgba($color-header-bg, 0.2);
+      color: $color-text-dark;
+      border-right: 1px solid rgba($color-header-bg, 0.1);
+    }
+
+    .col-team {
+      color: $color-text-dark;
+    }
+
+    // RESETTING THE STATS (WWCD, PLACE, ELIMS, TOTAL)
+    // This targets all spans (data-cells) and the total column
+    .data-cell,
+    .col-total {
+      background: $color-brand-text; // Using your Ice White/Brand variable
+      color: $color-text-dark; // Using dark text for readability on white
+      border-left: 1px solid rgba($color-header-bg, 0.05);
+    }
+
+    .col-total {
+      // Very subtle tint using the accent color variable
+      background: rgba($color-accent, 0.05);
+      color: $color-text-dark;
+      font-weight: 900;
+    }
   }
 }
+/* =========================
+   9. BACKGROUND TEXT
+   ========================= */
 
 .vertical-division-text {
   position: absolute;
-  left: -2.5%; top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  font-size: 8rem;
+  left: 25%;
+  top: 50%;
+  transform: translateY(-70%) rotate(-60deg);
+  font-size: 6rem;
   font-weight: 900;
-  color: rgba($text-light, 0.1);
+  color: rgba($color-text, 0.05);
   white-space: nowrap;
 }
 
-/* --- Footer --- */
+/* =========================
+   10. FOOTER
+   ========================= */
+
 .standings-footer {
   margin-top: 20px;
-  .footer-container { 
-    display: flex; 
-    background: $text-dark; 
-    gap: 1px; 
-    padding: 1px; 
+
+  .footer-container {
+    display: flex;
+    background: $color-header-bg;
+    gap: 1px;
+    padding: 1px;
   }
+
   .footer-segment {
-    padding: 5px 10px; 
+    padding: 5px 10px;
     display: flex;
     flex-direction: column;
-    background: $bg-card;
+    background: $color-card;
     justify-content: center;
 
-    .label { font-size: 0.75rem; color: rgba($text-dark, 0.5); font-weight: 800; }
-    .value { font-size: 1.1rem; color: $text-dark; font-weight: 800; }
+    .value {
+      font-size: 1.1rem;
+      color: $color-text;
+      font-weight: 800;
+    }
 
-    &.brand { border-left: 10px solid $accent-main; }
-    &.system { flex-grow: 1; }
-    
+    &.brand {
+      border-left: 10px solid $color-accent;
+    }
+
+    &.system {
+      flex-grow: 1;
+    }
+
     &.logo-space {
-        width: 180px; 
-        background: $bg-card;
+      width: 180px;
     }
 
     &.live {
-      background: $accent-main;
+      background: $color-accent;
       padding: 0 50px;
       clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
-      .live-indicator { 
-        font-weight: 900; 
+
+      .live-indicator {
+        font-weight: 900;
         font-size: 1.2rem;
-        color: $text-light; 
-        display: flex; 
-        align-items: center; 
-        gap: 12px; 
+        color: $color-text-dark;
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
+    }
+  }
+
+  .sponsor-banner {
+    margin-top: 5px;
+    width: 100%;
+    background: rgba($color-header-bg, 0.8);
+    border-top: 4px solid $color-accent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+
+    .sponsor-logo {
+      height: 80px;
+      object-fit: contain;
+    }
+    .ngc-footer-logo {
+      height: 80px;
+      object-fit: contain;
     }
   }
 }
 
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+/* =========================
+   GROUP TITLE (HUD STYLE)
+   ========================= */
+
+.group-title-row {
+  margin-top: -40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px; // Very tight to the divider
+}
+
+/* Update your group-title-inner SCSS */
+.group-title-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 20px;
+  position: relative;
+
+  // The Main Underline
+  border-bottom: 2px solid $color-accent;
+
+  // THE GLOW EFFECT
+  box-shadow: 0 10px 15px -10px rgba($color-accent, 0.5);
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 30%; // Only glows on the left side
+    height: 2px;
+    background: #fff; // Bright white core for the neon look
+    box-shadow:
+      0 0 10px $color-accent,
+      0 0 20px $color-accent;
+  }
+
+  .title-accent-box {
+    width: 12px;
+    height: 12px;
+    background: $color-accent;
+    /* Small slanted square for esports vibe */
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  }
+
+  .title-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: $color-text;
+    opacity: 0.6;
+    letter-spacing: 2px;
+  }
+
+  .title-value {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.4rem; // Smaller than main title, bigger than body
+    font-weight: 900;
+    color: $color-text;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* Optional: Small "corner" notches to remove the block look */
+  &::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    bottom: -2px;
+    width: 20px;
+    height: 2px;
+    background: $color-accent;
+    transform: skewX(-45deg);
+  }
+}
