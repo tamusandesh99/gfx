@@ -1,74 +1,83 @@
-import React from 'react'
-import './index.scss'
+import React from "react";
+import "./index.scss";
+import player1 from "../../../public/pics/player1.png";
+import player2 from "../../../public/pics/player2.png";
+import logo from "../../../public/pics/logoD.png";
 
-const players = [
-  {
-    name: 'RASYAH',
-    event: 'ESPORTS WORLD CUP 2025',
-    tag: 'EWC',
-    age: 16,
-    img: 'https://via.placeholder.com/120',
-    top: true
-  },
-  {
-    name: 'BOPS',
-    event: 'FFWS GF 2024 BRAZIL',
-    tag: 'WORLD SERIES',
-    age: 19,
-    img: 'https://via.placeholder.com/120'
-  },
-  {
-    name: 'MOSH',
-    event: 'ESPORTS WORLD CUP 2024',
-    tag: 'EWC',
-    age: 19,
-    img: 'https://via.placeholder.com/120'
-  },
-  {
-    name: 'DEW',
-    event: 'FFWS 2023',
-    tag: 'WORLD SERIES',
-    age: 17,
-    img: 'https://via.placeholder.com/120'
-  }
-]
+import pubgLogo from "../../../public/pics/pubg-sponsors.png";
+import ngclogo from "../../../public/pics/logoD.png";
 
-const MVP = () => {
+const MVPBoard = () => {
+  const players = [
+    { rank: 1, name: "", team: "NGC", elims: "", img: player1 },
+    { rank: 2, name: "", team: "T1", elims: "", img: player2 },
+    { rank: 3, name: "", team: "GENG", elims: "", img: player2 },
+    { rank: 4, name: "", team: "FAZE", elims: "", img: player2 },
+    { rank: 5, name: "", team: "NAVI", elims: "", img: player2 },
+  ];
+
   return (
-    <div className="mvp">
-      <div className="mvp__card">
-        <h1 className="mvp__title">MVP LIST</h1>
-        <div className="mvp__subtitle">INTERNATIONAL TOURNAMENT FREE FIRE</div>
+    <div className="app-outer-frame">
+      <div className="symmetry-wrapper">
+        <div className="bg-elements">
+          <div className="giant-text">NGC</div>
+        </div>
+        <header className="header-branding">
+          <div className="side-block left">
+            <span className="sub-label">ORGANIZED BY</span>
+            <span className="main-label">NGC ESPORTS</span>
+          </div>
 
-        {players.map((p, i) => (
-          <div className={`mvp__row ${p.top ? 'top' : ''}`} key={i}>
-            
-            {/* LEFT IMAGE */}
-            <div className="left">
-              <img src={p.img} alt="" />
-              <div className="name">{p.name}</div>
+          <div className="center-block">
+            <div className="glitch-wrapper">
+              <span className="top-title">DAILY SCRIMS</span>
+              <h1 className="main-title">TOP FRAGGERS</h1>
             </div>
+          </div>
 
-            {/* CENTER */}
-            <div className="middle">
-              <div className="event-tag">EVENT</div>
-              <div className="event-box">
-                <strong>{p.tag}</strong>
-                <p>{p.event}</p>
+          <div className="side-block right">
+            <span className="sub-label">START TIME</span>
+            <span className="main-label">20:00 CET</span>
+          </div>
+        </header>
+        <div className="wing-stage">
+          {players.map((p) => (
+            <div key={p.rank} className={`wing-slot rank-${p.rank}`}>
+              <div className="slot-backdrop"></div>
+              <div className="back-beam"></div>
+
+              <div className="char-container">
+                <img src={p.img} alt={p.name} />
+              </div>
+
+              <div className="stats-box">
+                {/* NEW: Logo anchored as a badge on the corner */}
+                <div className="logo-badge">
+                  {/* <img src={logo} alt="team-logo" /> */}
+                </div>
+
+                <div className="rank-tag">
+                  {p.rank === 1 ? "MVP" : `#${p.rank}`}
+                </div>
+                <div className="details">
+                  <span className="n">{p.name}</span>
+                  <span className="e">{p.elims} KILLS</span>
+                </div>
               </div>
             </div>
+          ))}
+        </div>
 
-            {/* RIGHT AGE */}
-            <div className="right">
-              <div className="age">{p.age}</div>
-              <span>TAHUN</span>
-            </div>
-
+        <footer className="standings-footer">
+          <div className="sponsor-banner">
+            {" "}
+            <img src={pubgLogo} alt="Sponsors" className="sponsor-logo" />
+            <img src={ngclogo} alt="NGC Logo" className="ngc-footer-logo" />
           </div>
-        ))}
+        </footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MVP
+export default MVPBoard;

@@ -1,121 +1,462 @@
-.mvp {
-  background: #0b0b0b;
-  min-height: 100vh;
+// ==========================================================================
+// 1. VARIABLES (THEME CONTROL)
+// ==========================================================================
+
+// --- CORE BRAND COLORS ---
+$c-accent: #ffb700;           // Amber Gold
+$c-accent-dim: rgba($c-accent, 0.25);
+$c-accent-dark: #b38000;      // Bronze/Gold Fade
+$c-bg-main: #140e03;          // Pure Black Background
+$c-white: #ffffff;
+$c-black: #000000;
+
+// --- SURFACE & UI COLORS ---
+$c-surface-card: rgb(34, 33, 33); // Charcoal Grey for slots
+$c-surface-panel: #1a1a1a;        // Darker paneling
+$c-surface-footer: #000000;
+$c-border-stark: #ffffff;         // Keeping the crisp white frame
+$c-border-soft: rgba($c-accent, 0.4);
+$c-border-ghost: rgba($c-white, 0.1);
+$stat-name: rgb(66, 65, 65);
+$stat-elim: #ffb700;
+
+// --- TEXT COLORS ---
+$c-txt-main: #ffffff;
+$c-txt-muted: rgba(255, 255, 255, 0.2);
+$c-txt-on-accent: #000000;        // Black text on Gold blocks
+$c-txt-dim: rgba(255, 255, 255, 0.04);
+
+// --- LAYOUT & ANIMATION ---
+$base-width: 80em;
+$skew-angle: -5deg;
+$ladder-step-char: 40px;
+$ladder-step-backdrop: 9px;
+
+// ==========================================================================
+// 2. CORE FRAME & BACKGROUND
+// ==========================================================================
+
+.app-outer-frame {
+  width: $base-width;
+  margin: 40px auto;
+  background: $c-bg-main;
+  padding: 10px;
+  border: 2px solid $c-border-stark;
+  position: relative;
+
+  // Corner Brackets
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 3px solid $c-accent;
+    z-index: 20;
+  }
+  &::before {
+    top: -5px;
+    left: -5px;
+    border-right: 0;
+    border-bottom: 0;
+  }
+  &::after {
+    bottom: -5px;
+    right: -5px;
+    border-left: 0;
+    border-top: 0;
+  }
+}
+
+.symmetry-wrapper {
+  background: $c-bg-main;
+  height: 900px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  color: #fff;
+  flex-direction: column;
+  padding: 40px;
+  font-family: "JetBrains Mono", monospace;
+  text-transform: uppercase;
+  color: $c-txt-main;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $c-accent-dim;
+}
 
-  &__card {
-    width: 420px;
-  }
-
-  &__title {
-    text-align: center;
-    font-size: 36px;
+.bg-elements {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  .giant-text {
+    position: absolute;
+    top: 45%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    font-size: 35rem;
     font-weight: 900;
-    letter-spacing: 2px;
+    color: $c-txt-dim;
+    letter-spacing: -20px;
   }
+}
 
-  &__subtitle {
-    text-align: center;
-    font-size: 11px;
-    opacity: 0.7;
-    margin-bottom: 20px;
-  }
+// ==========================================================================
+// 3. HEADER SECTION
+// ==========================================================================
 
-  &__row {
-    display: grid;
-    grid-template-columns: 110px 1fr 80px;
-    margin-bottom: 12px;
+.header-branding {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px 0;
+  margin-bottom: 15px;
+  border-bottom: 4px solid $c-border-stark;
 
-    /* SKEW WHOLE ROW */
-    transform: skewX(-15deg);
+  .side-block {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
 
-    > * {
-      transform: skewX(15deg); // fix inside content
+    .sub-label {
+      font-size: 0.75rem;
+      color: $c-accent;
+      letter-spacing: 2px;
+      font-weight: 400;
+      margin-bottom: 4px;
     }
 
-    .left {
-      position: relative;
-      overflow: hidden;
+    .main-label {
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
 
+    &.right {
+      text-align: right;
+      align-items: flex-end;
+    }
+  }
+
+  .center-block {
+    text-align: center;
+    flex-grow: 1;
+
+    .top-title {
+      display: inline-block;
+      font-size: 0.9rem;
+      background: $c-accent;
+      color: $c-black;
+      padding: 2px 12px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      transform: skewX(-10deg);
+    }
+
+    .main-title {
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -4px;
+      font-style: italic;
+      margin: 0;
+      text-shadow: 3px 3px 0px rgba($c-white, 0.1);
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 60px;
+    height: 8px;
+    background: $c-accent;
+  }
+}
+
+// ==========================================================================
+// 4. THE WING STAGE & SLOTS
+// ==========================================================================
+
+.wing-stage {
+  position: relative;
+  z-index: 5;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.wing-slot {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  max-width: 200px;
+
+  .slot-backdrop {
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    background: linear-gradient(180deg, $c-surface-panel 0%, $c-bg-main 100%);
+    border: 1px solid $c-border-ghost;
+    border-top: 2px solid rgba($c-white, 0.1);
+    transform: skewX($skew-angle);
+    z-index: 1;
+  }
+
+  .back-beam {
+    position: absolute;
+    bottom: 100px;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      0deg,
+      rgba($c-accent, 0.4) 0%,
+      rgba($c-accent, 0.1) 50%,
+      transparent 100%
+    );
+    filter: blur(20px);
+    z-index: 2;
+    opacity: 0.6;
+    pointer-events: none;
+    transform: skewX($skew-angle);
+  }
+
+  .char-container {
+    display: flex;
+    align-items: flex-end;
+    z-index: 3;
+    img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0.7);
+    }
+  }
+
+  // Ladder Effect for Ranks 2-5
+  @for $i from 2 through 5 {
+    &.rank-#{$i} {
+      .char-container {
+        height: #{400 - ($i * $ladder-step-char)};
+      }
+      .slot-backdrop {
+        height: #{400 - ($i * $ladder-step-backdrop)};
+      }
+      .back-beam {
+        height: #{450 - ($i * 50)}px;
+        opacity: #{0.5 - ($i * 0.1)};
+        filter: blur(#{30 - ($i * 2)}px);
+      }
+    }
+  }
+
+  // ==========================================================================
+  // 5. STATS BOX (WITH NAME & KILL BLOCKS)
+  // ==========================================================================
+  .stats-box {
+    width: 100%;
+    background: $c-surface-card;
+    padding: 15px 5px;
+    text-align: center;
+    border: 1px solid $c-border-stark;
+    position: relative;
+    z-index: 10;
+    height: 13vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+
+    .logo-badge {
+      position: absolute;
+      top: -20px;
+      right: 5px;
+      width: 45px;
+      height: 45px;
+      background: $c-black;
+      border: 1px solid $c-white;
+      padding: 5px;
+      transform: rotate(5deg);
+      box-shadow: 0 4px 10px rgba($c-black, 0.5);
       img {
         width: 100%;
-        height: 85px;
-        object-fit: cover;
-      }
-
-      .name {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background: #ffd000;
-        color: #000;
-        font-size: 12px;
-        font-weight: bold;
-        text-align: center;
+        height: 100%;
+        object-fit: contain;
       }
     }
 
-    .middle {
-      background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-      padding: 10px;
-
-      .event-tag {
-        font-size: 9px;
-        background: #444;
-        display: inline-block;
-        padding: 2px 6px;
-        margin-bottom: 5px;
-      }
-
-      .event-box {
-        strong {
-          font-size: 14px;
-        }
-
-        p {
-          font-size: 10px;
-          opacity: 0.7;
-        }
-      }
+    .rank-tag {
+      color: $c-white;
+      font-weight: 900;
+      font-size: 1rem;
     }
 
-    .right {
-      background: #1f1f1f;
+    .details {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      gap: 4px;
 
-      .age {
-        font-size: 28px;
-        font-weight: bold;
+      .n {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        height: 3vh;
+        background: $stat-name;
+        font-weight: 800;
+        font-size: 0.85rem;
+        border-left: 2px solid $c-accent;
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
       }
 
-      span {
-        font-size: 9px;
-        opacity: 0.6;
+      .e {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        min-width: 60%;
+        height: 3vh;
+        background: $stat-elim;
+        color: $c-black;
+        font-size: 1.1rem;
+        font-weight: 950;
+        padding: 0 10px;
+        clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+        display: flex; // Ensure it's a flex container
+        justify-content: flex-end; // Pushes content to the right
+        align-items: center; // Keeps it vertically centered
+        padding-right: 10px; // Keeps text away from the slanted edge
+        text-align: right;
       }
     }
   }
 
-  /* TOP PLAYER SPECIAL STYLE */
-  .top {
-    .middle {
-      background: linear-gradient(135deg, #444, #222);
-      border: 2px solid #ffd000;
+  // ==========================================================================
+  // 6. RANK 1 (MVP) SPECIAL OVERRIDES
+  // ==========================================================================
+  &.rank-1 {
+    z-index: 15;
+    max-width: 250px;
+    .slot-backdrop {
+      height: 85%;
+      border-top: 4px solid $c-accent;
+    }
+    .char-container {
+      height: 480px;
+      img {
+        filter: brightness(1);
+        opacity: 1;
+      }
     }
 
-    .right {
-      background: #ffd000;
-      color: #000;
+    .stats-box {
+      background: $c-black;
+      border: 2px solid $c-accent;
 
-      .age {
-        font-size: 32px;
+      .logo-badge {
+        width: 60px;
+        height: 60px;
+        top: -30px;
+        border: 2px solid $c-accent;
+        box-shadow: 0 0 15px rgba($c-accent, 0.3);
       }
+
+      .rank-tag {
+        position: absolute;
+        top: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $c-accent;
+        color: $c-black;
+        padding: 4px 30px;
+        font-size: 1.2rem;
+        font-weight: 950;
+        font-style: italic;
+        z-index: 20;
+        clip-path: polygon(
+          10% 0%,
+          90% 0%,
+          100% 30%,
+          100% 70%,
+          90% 100%,
+          10% 100%,
+          0% 70%,
+          0% 30%
+        );
+        border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+      }
+
+      .details {
+        margin-top: 15px;
+        .n {
+          font-size: 1.5rem;
+          color: $c-accent;
+          height: 3vh;
+          background: $stat-name;
+          font-weight: 800;
+          font-size: 0.85rem;
+          border-left: 2px solid $c-accent;
+          clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        }
+        .e {
+          min-width: 80%;
+          font-size: 2.2rem;
+          height: 5vh;
+          box-shadow: $stat-elim;
+        }
+      }
+    }
+
+    .back-beam {
+      width: 80%;
+      height: 600px;
+      opacity: 1;
+      background: linear-gradient(
+        0deg,
+        rgba($c-accent, 0.7) 0%,
+        rgba($c-accent, 0.2) 60%,
+        transparent 100%
+      );
+      filter: blur(25px);
+      box-shadow: 0 0 50px rgba($c-accent, 0.2);
+    }
+  }
+}
+
+// ==========================================================================
+// 7. FOOTER SECTION
+// ==========================================================================
+
+.standings-footer {
+  .sponsor-banner {
+    margin-left: -50px;
+    margin-right: -40px;
+    margin-top: 35px;
+    width: $base-width;
+    height: 70px;
+    background: $c-surface-footer;
+    border-top: 2px solid $c-border-stark;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    .sponsor-logo {
+      height: 70px;
+      object-fit: contain;
+      filter: brightness(1.2);
+    }
+    .ngc-footer-logo {
+      height: 130px;
+      margin-top: 20px;
+      margin-right: 10px;
+      object-fit: contain;
+      z-index: 50;
     }
   }
 }
