@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.scss";
-import player1 from "../../../public/pics/player1.png";
-import player2 from "../../../public/pics/player2.png";
+import player1 from "../../../public/pics/player3.png";
+import player2 from "../../../public/pics/player4.png";
 import logo from "../../../public/pics/logoD.png";
 
 import pubgLogo from "../../../public/pics/pubg-sponsors.png";

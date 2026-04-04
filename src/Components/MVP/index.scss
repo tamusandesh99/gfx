@@ -70,7 +70,7 @@ $ladder-step-backdrop: 9px;
 
 .symmetry-wrapper {
   background: $c-bg-main;
-  height: 900px;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   padding: 40px;
@@ -205,6 +205,7 @@ $ladder-step-backdrop: 9px;
     border-top: 2px solid rgba($c-white, 0.1);
     transform: skewX($skew-angle);
     z-index: 1;
+    height: 350px; // Fixed backdrop height
   }
 
   .back-beam {
@@ -229,28 +230,12 @@ $ladder-step-backdrop: 9px;
     display: flex;
     align-items: flex-end;
     z-index: 3;
+    height: 280px;
     img {
       height: 100%;
       width: auto;
       object-fit: contain;
       filter: brightness(0.7);
-    }
-  }
-
-  // Ladder Effect for Ranks 2-5
-  @for $i from 2 through 5 {
-    &.rank-#{$i} {
-      .char-container {
-        height: #{400 - ($i * $ladder-step-char)};
-      }
-      .slot-backdrop {
-        height: #{400 - ($i * $ladder-step-backdrop)};
-      }
-      .back-beam {
-        height: #{450 - ($i * 50)}px;
-        opacity: #{0.5 - ($i * 0.1)};
-        filter: blur(#{30 - ($i * 2)}px);
-      }
     }
   }
 
