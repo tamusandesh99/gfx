@@ -1,22 +1,25 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import './App.scss'
-// import SemiA from './Components/pro-series/Semi-A'  
-// import SemiB from './Components/pro-series/Semi-B'  
-// import SemiC from './Components/pro-series/Semi-C'  
-// import SuperSunday from './Components/thumbail/ss'  
+import "./App.scss";
+// import SemiA from './Components/pro-series/Semi-A'
+// import SemiB from './Components/pro-series/Semi-B'
+// import SemiC from './Components/pro-series/Semi-C'
+// import SuperSunday from './Components/thumbail/ss'
 // import ProBanner from './Components/thumbail/banner'
-// import Daily from './Components/Daily'
-import MVP from './Components/MVP'
+import Daily20 from './Components/Daily20'
+import MVP1 from "./Components/MVP20";
+import MVP2 from './Components/MVP23'
+import Daily23 from './Components/Daily23'
 
 function App() {
-
-
   return (
     <>
-      <MVP /> 
+      <MVP1 />
+      {/* <MVP2 /> */}
+      {/* <Daily20 />  */}
+      {/* <Daily23 />  */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
