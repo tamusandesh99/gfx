@@ -1,490 +1,490 @@
-// // ==========================================================================
-// // 1. VARIABLES
-// // ==========================================================================
-// $c-accent: #bc13fe;       // Electric Purple / Neon Violet
-// $c-bg-main: #0a0812;      // Shifted slightly toward deep navy/black for purple harmony
-// $c-white: #ffffff;
-// $c-black: #000000;
-// $c-border-stark: #ffffff;
-// $base-width: 80em;
+// ==========================================================================
+// 1. VARIABLES
+// ==========================================================================
+$c-accent: #bc13fe;       // Electric Purple / Neon Violet
+$c-bg-main: #0a0812;      // Shifted slightly toward deep navy/black for purple harmony
+$c-white: #ffffff;
+$c-black: #000000;
+$c-border-stark: #ffffff;
+$base-width: 80em;
 
-// // ==========================================================================
-// // 2. CORE FRAME
-// // ==========================================================================
-// .app-outer-frame {
-//   width: $base-width;
-//   margin: 40px auto;
-//   background: $c-bg-main;
-//   padding: 10px;
-//   border: 5px solid $c-border-stark;
-//   position: relative;
+// ==========================================================================
+// 2. CORE FRAME
+// ==========================================================================
+.app-outer-frame {
+  width: $base-width;
+  margin: 40px auto;
+  background: $c-bg-main;
+  padding: 10px;
+  border: 5px solid $c-border-stark;
+  position: relative;
 
-//   &::before,
-//   &::after {
-//     content: "";
-//     position: absolute;
-//     width: 25px;
-//     height: 25px;
-//     border: 4px solid $c-accent;
-//     z-index: 20;
-//   }
-//   &::before {
-//     top: -6px;
-//     left: -6px;
-//     border-right: 0;
-//     border-bottom: 0;
-//   }
-//   &::after {
-//     bottom: -6px;
-//     right: -6px;
-//     border-left: 0;
-//     border-top: 0;
-//   }
-// }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 4px solid $c-accent;
+    z-index: 20;
+  }
+  &::before {
+    top: -6px;
+    left: -6px;
+    border-right: 0;
+    border-bottom: 0;
+  }
+  &::after {
+    bottom: -6px;
+    right: -6px;
+    border-left: 0;
+    border-top: 0;
+  }
+}
 
-// .symmetry-wrapper {
-//   background: $c-bg-main;
-//   height: 90vh;
-//   display: flex;
-//   flex-direction: column;
-//   padding: 40px 40px 0 40px;
-//   font-family: "JetBrains Mono", monospace;
-//   text-transform: uppercase;
-//   position: relative;
-//   overflow: hidden;
-//   border: 2px solid rgba($c-accent, 0.2);
-// }
+.symmetry-wrapper {
+  background: $c-bg-main;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 40px 0 40px;
+  font-family: "JetBrains Mono", monospace;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba($c-accent, 0.2);
+}
 
 
-// // CENTERED BACKGROUND GHOST TEXT
-// // ==========================================================================
-// .bg-center-watermark {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   width: 100%;
-//   height: 100%;
+// CENTERED BACKGROUND GHOST TEXT
+// ==========================================================================
+.bg-center-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
   
-//   // FIXED: Bumped to 2. If it's still gone, try 999 just to see if it appears.
-//   z-index: 2; 
+  // FIXED: Bumped to 2. If it's still gone, try 999 just to see if it appears.
+  z-index: 2; 
   
-//   pointer-events: none;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   overflow: hidden;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 
-//   .ghost-text {
-//     opacity: 0.3;
-//     font-size: 50rem;
-//     font-weight: 950;
-//     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-//     font-style: italic;
+  .ghost-text {
+    opacity: 0.3;
+    font-size: 50rem;
+    font-weight: 950;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
     
-//     // FIXED: Bumped opacity to 0.08. 
-//     // Against #140e03, 0.05 can be literally invisible on some monitors.
-//     color: rgba($c-white, 0.08); 
+    // FIXED: Bumped opacity to 0.08. 
+    // Against #140e03, 0.05 can be literally invisible on some monitors.
+    color: rgba($c-white, 0.08); 
     
-//     letter-spacing: -25px;
-//     line-height: 1;
-//     white-space: nowrap;
-//     user-select: none;
-//   }
-// }
+    letter-spacing: -25px;
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+  }
+}
 
-// // IMPORTANT: Ensure your player rows stay on top
-// .wing-stage {
-//   position: relative;
-//   z-index: 10; // Must be higher than the ghost text
-// }
+// IMPORTANT: Ensure your player rows stay on top
+.wing-stage {
+  position: relative;
+  z-index: 10; // Must be higher than the ghost text
+}
 
-// .header-branding, .standings-footer {
-//   position: relative;
-//   z-index: 20;
-// }
+.header-branding, .standings-footer {
+  position: relative;
+  z-index: 20;
+}
 
-// .header-branding {
-//   position: relative;
-//   z-index: 10;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding-bottom: 25px;
+.header-branding {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 25px;
 //   border-bottom: 2px solid rgba($c-white, 0.1);
-//   color: $c-white;
-//   // Subtle blur to help the ghost text feel "deep"
-//   backdrop-filter: blur(2px);
+  color: $c-white;
+  // Subtle blur to help the ghost text feel "deep"
+  backdrop-filter: blur(2px);
 
-//   .side-block {
-//     flex: 1;
-//     .sub-label {
-//       display: block;
-//       font-size: 0.7rem;
-//       color: $c-accent;
-//       letter-spacing: 3px;
-//       margin-bottom: 5px;
-//     }
-//     .main-label {
-//       font-size: 1.5rem;
-//       font-weight: 900;
-//       letter-spacing: 1px;
-//     }
-//     &.right {
-//       text-align: right;
-//     }
-//   }
+  .side-block {
+    flex: 1;
+    .sub-label {
+      display: block;
+      font-size: 0.7rem;
+      color: $c-accent;
+      letter-spacing: 3px;
+      margin-bottom: 5px;
+    }
+    .main-label {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+    &.right {
+      text-align: right;
+    }
+  }
 
-//   .center-block {
-//     flex: 2;
-//     text-align: center;
-//     .top-title {
-//       display: inline-block;
-//       background: $c-accent;
-//       color: $c-black;
-//       padding: 3px 15px;
-//       font-weight: 900;
-//       font-size: 0.8rem;
-//       margin-bottom: 10px;
-//     }
-//     .main-title {
-//       font-size: 4rem;
-//       font-weight: 900;
-//       line-height: 1;
-//       letter-spacing: -2px;
-//       margin: 0;
-//       font-style: italic;
-//       background: linear-gradient(to bottom, $c-white 30%, $c-accent 100%);
-//       -webkit-background-clip: text; // Required for Chrome/Safari/Edge
-//       background-clip: text; // Standard property
+  .center-block {
+    flex: 2;
+    text-align: center;
+    .top-title {
+      display: inline-block;
+      background: $c-accent;
+      color: $c-black;
+      padding: 3px 15px;
+      font-weight: 900;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+    .main-title {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -2px;
+      margin: 0;
+      font-style: italic;
+      background: linear-gradient(to bottom, $c-white 30%, $c-accent 100%);
+      -webkit-background-clip: text; // Required for Chrome/Safari/Edge
+      background-clip: text; // Standard property
 
-//       // 4. HIDE THE ACTUAL TEXT COLOR
-//       // This makes the text "hollow" so the background gradient shines through
-//       color: transparent;
-//     }
-//   }
-// }
+      // 4. HIDE THE ACTUAL TEXT COLOR
+      // This makes the text "hollow" so the background gradient shines through
+      color: transparent;
+    }
+  }
+}
 
-// // ==========================================================================
-// // 4. WING STAGE (PLAYERS) - HIGH-GLOW EDITION
-// // ==========================================================================
-// .wing-stage {
-//   flex: 1;
-//   display: flex;
-//   flex-direction: column;
-//   gap: 18px; 
-//   justify-content: center;
-//   padding: 30px 0;
-//   position: relative;
-//   z-index: 10;
-//   width: 100%;
-//   max-width: 850px; 
-//   margin: 0 auto; 
-// }
+// ==========================================================================
+// 4. WING STAGE (PLAYERS) - HIGH-GLOW EDITION
+// ==========================================================================
+.wing-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px; 
+  justify-content: center;
+  padding: 30px 0;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 850px; 
+  margin: 0 auto; 
+}
 
-// .wing-slot {
-//   width: 100%;
-//   height: 8.5vh;
-//   display: flex;
-//   align-items: center;
+.wing-slot {
+  width: 100%;
+  height: 8.5vh;
+  display: flex;
+  align-items: center;
   
-//   // GLASS MORPHISM BASE
-//   background: linear-gradient(
-//     90deg, 
-//     rgba(20, 15, 35, 0.95) 0%, 
-//     rgba(10, 8, 18, 0.8) 100%
-//   );
+  // GLASS MORPHISM BASE
+  background: linear-gradient(
+    90deg, 
+    rgba(20, 15, 35, 0.95) 0%, 
+    rgba(10, 8, 18, 0.8) 100%
+  );
   
-//   // 1. LAYERED SHADOWS (The "Pop" effect)
-//   // Shadow 1: Dark ambient drop shadow
-//   // Shadow 2: Subtle outer purple bloom
-//   // Shadow 3: Inner top highlight (Bezel look)
-//   box-shadow: 
-//     0 10px 30px rgba(0, 0, 0, 0.5),
-//     0 0 15px rgba($c-accent, 0.05),
-//     inset 0 1px 1px rgba($c-white, 0.1);
+  // 1. LAYERED SHADOWS (The "Pop" effect)
+  // Shadow 1: Dark ambient drop shadow
+  // Shadow 2: Subtle outer purple bloom
+  // Shadow 3: Inner top highlight (Bezel look)
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba($c-accent, 0.05),
+    inset 0 1px 1px rgba($c-white, 0.1);
 
-//   border: 1px solid rgba($c-white, 0.05);
-//   border-left: 3px solid rgba($c-white, 0.2);
-//   position: relative;
-//   overflow: hidden;
-//   transition: transform 0.3s ease;
+  border: 1px solid rgba($c-white, 0.05);
+  border-left: 3px solid rgba($c-white, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 
-//   // TOP "NEON" LIGHT STRIP
-//   &::before {
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 2px;
-//     background: linear-gradient(90deg, transparent, rgba($c-accent, 0.3), transparent);
-//     z-index: 2;
-//   }
+  // TOP "NEON" LIGHT STRIP
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba($c-accent, 0.3), transparent);
+    z-index: 2;
+  }
 
-//   .vertical-divider {
-//     width: 1px;
-//     height: 100%;
-//     background: linear-gradient(
-//       to bottom, 
-//       transparent, 
-//       rgba($c-white, 0.15), 
-//       transparent
-//     );
-//     flex-shrink: 0;
-//   }
+  .vertical-divider {
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+      to bottom, 
+      transparent, 
+      rgba($c-white, 0.15), 
+      transparent
+    );
+    flex-shrink: 0;
+  }
 
-//   .char-container {
-//     width: 110px;
-//     height: 100%;
-//     background: #000;
-//     flex-shrink: 0;
-//     position: relative;
-//     border-right: 1px solid rgba($c-accent, 0.2);
+  .char-container {
+    width: 110px;
+    height: 100%;
+    background: #000;
+    flex-shrink: 0;
+    position: relative;
+    border-right: 1px solid rgba($c-accent, 0.2);
 
-//     // VIGNETTE OVER PHOTO
-//     &::after {
-//       content: "";
-//       position: absolute;
-//       inset: 0;
-//       background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.6) 100%);
-//     }
+    // VIGNETTE OVER PHOTO
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.4) 100%);
+    }
 
-//     img { 
-//       width: 100%; 
-//       height: 100%; 
-//       object-fit: cover; 
-//       object-position: top; 
-//     }
-//   }
+    img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      object-position: top; 
+    }
+  }
 
-//   .stats-box {
-//     flex: 1;
-//     display: flex;
-//     align-items: center;
-//     height: 100%;
-//     padding: 0 25px;
+  .stats-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 25px;
 
-//     .logo-badge {
-//       width: 60px;
-//       margin-right: 15px;
-//       // LOGO GLOW
-//       filter: drop-shadow(0 0 8px rgba($c-white, 0.2));
-//       img { width: 45px; height: 45px; object-fit: contain; }
-//     }
+    .logo-badge {
+      width: 60px;
+      margin-right: 15px;
+      // LOGO GLOW
+      filter: drop-shadow(0 0 8px rgba($c-white, 0.2));
+      img { width: 45px; height: 45px; object-fit: contain; }
+    }
 
-//     .name-cell {
-//       flex: 1;
-//       .n {
-//         font-size: 1.6rem;
-//         font-weight: 950;
-//         color: $c-white;
-//         letter-spacing: 1px;
-//         // HARDSHELL TEXT SHADOW
-//         text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-//       }
-//     }
+    .name-cell {
+      flex: 1;
+      .n {
+        font-size: 1.6rem;
+        font-weight: 950;
+        color: $c-white;
+        letter-spacing: 1px;
+        // HARDSHELL TEXT SHADOW
+        text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+      }
+    }
 
-//     .rank-indicator {
-//       font-family: "JetBrains Mono";
-//       color: rgba($c-white, 0.4);
-//       font-weight: 900;
-//       font-size: 1.1rem;
-//       padding-right: 25px;
-//     }
+    .rank-indicator {
+      font-family: "JetBrains Mono";
+      color: rgba($c-white, 0.4);
+      font-weight: 900;
+      font-size: 1.1rem;
+      padding-right: 25px;
+    }
 
-//     .e {
-//       width: 100px;
-//       height: 55%;
-//       background: rgba(0, 0, 0, 0.6);
-//       border: 1px solid rgba($c-accent, 0.5);
-//       display: flex;
-//       align-items: center;
-//       justify-content: center;
-//       font-size: 2rem;
-//       font-weight: 900;
-//       color: $c-white;
-//       position: relative;
+    .e {
+      width: 100px;
+      height: 55%;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba($c-accent, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 900;
+      color: $c-white;
+      position: relative;
       
-//       // INTERNAL BOX GLOW
-//       box-shadow: inset 0 0 15px rgba($c-accent, 0.2);
+      // INTERNAL BOX GLOW
+      box-shadow: inset 0 0 15px rgba($c-accent, 0.2);
 
-//       &::before {
-//         content: "KILLS";
-//         position: absolute;
-//         top: -18px;
-//         font-size: 0.6rem;
-//         letter-spacing: 2px;
-//         color: $c-accent;
-//         text-shadow: 0 0 5px rgba($c-accent, 0.5);
-//       }
-//     }
-//   }
+      &::before {
+        content: "KILLS";
+        position: absolute;
+        top: -18px;
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+        color: $c-accent;
+        text-shadow: 0 0 5px rgba($c-accent, 0.5);
+      }
+    }
+  }
 
-//   // ==========================================================================
-//   // --- MVP (RANK 1) - THE "ULTRA" GLOW ---
-//   // ==========================================================================
-//   &.rank-1 {
-//     height: 18vh;
-//     border: 1px solid rgba($c-accent, 0.8);
-//     border-left: 10px solid $c-accent;
-//     background: linear-gradient(
-//       90deg, 
-//       rgba($c-accent, 0.2) 0%, 
-//       rgba(5, 5, 15, 1) 100%
-//     );
+  // ==========================================================================
+  // --- MVP (RANK 1) - THE "ULTRA" GLOW ---
+  // ==========================================================================
+  &.rank-1 {
+    height: 18vh;
+    border: 1px solid rgba($c-accent, 0.8);
+    border-left: 10px solid $c-accent;
+    background: linear-gradient(
+      90deg, 
+      rgba($c-accent, 0.2) 0%, 
+      rgba(5, 5, 15, 1) 100%
+    );
 
-//     // INTENSE BLOOM SHADOW
-//     box-shadow: 
-//       0 20px 60px rgba(0, 0, 0, 0.8),
-//       0 0 40px rgba($c-accent, 0.3),
-//       inset 0 0 20px rgba($c-accent, 0.1);
+    // INTENSE BLOOM SHADOW
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.8),
+      0 0 40px rgba($c-accent, 0.3),
+      inset 0 0 20px rgba($c-accent, 0.1);
 
-//     &::before {
-//       height: 3px;
-//       background: linear-gradient(90deg, $c-accent, $c-white, $c-accent);
-//       box-shadow: 0 0 15px $c-accent;
-//     }
+    &::before {
+      height: 3px;
+      background: linear-gradient(90deg, $c-accent, $c-white, $c-accent);
+      box-shadow: 0 0 15px $c-accent;
+    }
 
-//     .char-container {
-//       width: 180px;
-//       border-right: 2px solid $c-accent;
-//       &::after {
-//         background: linear-gradient(to top, rgba($c-accent, 0.5) 0%, transparent 60%);
-//       }
-//     }
+    .char-container {
+      width: 180px;
+      border-right: 2px solid $c-accent;
+      &::after {
+        background: linear-gradient(to top, rgba($c-accent, 0.5) 0%, transparent 60%);
+      }
+    }
 
-//     .name-cell .n {
-//       font-size: 2.8rem;
-//       color: $c-white;
-//       // HYPER GLOW ON NAME
-//       text-shadow: 
-//         0 0 10px rgba($c-accent, 0.8),
-//         0 0 30px rgba($c-accent, 0.4);
-//     }
+    .name-cell .n {
+      font-size: 2.8rem;
+      color: $c-white;
+      // HYPER GLOW ON NAME
+      text-shadow: 
+        0 0 10px rgba($c-accent, 0.8),
+        0 0 30px rgba($c-accent, 0.4);
+    }
 
-//     .rank-indicator {
-//       font-size: 2.2rem;
-//       color: $c-accent;
-//       text-shadow: 0 0 15px rgba($c-accent, 0.5);
-//     }
+    .rank-indicator {
+      font-size: 2.2rem;
+      color: $c-accent;
+      text-shadow: 0 0 15px rgba($c-accent, 0.5);
+    }
 
-//     .e {
-//       width: 160px;
-//       height: 70%;
-//       background: $c-accent;
-//       border: none;
-//       color: $c-white;
-//       font-size: 4rem;
-//       // OUTER SCORE GLOW
-//       box-shadow: 0 0 30px rgba($c-accent, 0.6);
+    .e {
+      width: 160px;
+      height: 70%;
+      background: $c-accent;
+      border: none;
+      color: $c-white;
+      font-size: 4rem;
+      // OUTER SCORE GLOW
+      box-shadow: 0 0 30px rgba($c-accent, 0.6);
 
-//       &::before {
-//         color: $c-white;
-//         font-size: 1rem;
-//         top: -24px;
-//         text-shadow: 0 0 10px rgba($c-accent, 1);
-//       }
-//     }
-//   }
-// }
-// // ==========================================================================
-// // 5. FOOTER (STUCK TO RADIUS)
-// // ==========================================================================
-// .standings-footer {
-//   width: 100%;
-//   margin-top: auto;
-//   position: relative;
-//   z-index: 10;
+      &::before {
+        color: $c-white;
+        font-size: 1rem;
+        top: -24px;
+        text-shadow: 0 0 10px rgba($c-accent, 1);
+      }
+    }
+  }
+}
+// ==========================================================================
+// 5. FOOTER (STUCK TO RADIUS)
+// ==========================================================================
+.standings-footer {
+  width: 100%;
+  margin-top: auto;
+  position: relative;
+  z-index: 10;
 
-//   .sponsor-banner {
-//     margin: 0 -40px;
-//     height: 90px;
-//     background: $c-black;
-//     border-top: 2px solid $c-border-stark;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 0 50px;
+  .sponsor-banner {
+    margin: 0 -40px;
+    height: 90px;
+    background: $c-black;
+    border-top: 2px solid $c-accent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
 
-//     .sponsor-logo {
-//       height: 80px;
-//       margin-top: -30px;
-//       margin-left: -50px;
-//     }
-//     .ngc-footer-logo {
-//       height: 50px;
-//       margin-top: -10px;
-//       margin-right: -40px;
-//     }
-//   }
-// }
+    .sponsor-logo {
+      height: 80px;
+      margin-top: -30px;
+      margin-left: -50px;
+    }
+    .ngc-footer-logo {
+      height: 50px;
+      margin-top: -10px;
+      margin-right: -40px;
+    }
+  }
+}
 
-// // ==========================================================================
-// // VERTICAL MARGIN TEXT (The Outer Frame Labels)
-// // ==========================================================================
-// .symmetry-wrapper {
-//   // CRITICAL: Ensure the wrapper is the positioning parent
-//   position: relative; 
-//   overflow: hidden;
-// }
+// ==========================================================================
+// VERTICAL MARGIN TEXT (The Outer Frame Labels)
+// ==========================================================================
+.symmetry-wrapper {
+  // CRITICAL: Ensure the wrapper is the positioning parent
+  position: relative; 
+  overflow: hidden;
+}
 
-// .vertical-outer-label {
-//   position: absolute;
-//   top: 50%;
-//   transform: translateY(-50%); // Perfectly center vertically
-//   z-index: 5; // Sits above the watermark, below header/footer (z-10/20)
+.vertical-outer-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); // Perfectly center vertically
+  z-index: 5; // Sits above the watermark, below header/footer (z-10/20)
   
-//   // THE TEXT TYPOGRAPHY
-//   font-family: "JetBrains Mono", monospace;
-//   font-weight: 950;
-//   color: rgba($c-white, 0.1); // Keep it subtle and ghosted
-//   letter-spacing: -10px; // Tight letter-spacing for large vertical text
-//   white-space: nowrap;
-//   pointer-events: none;
-//   user-select: none;
-//   text-transform: uppercase;
-//   font-style: italic;
+  // THE TEXT TYPOGRAPHY
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 950;
+  color: rgba($c-white, 0.04); // Keep it subtle and ghosted
+  letter-spacing: -10px; // Tight letter-spacing for large vertical text
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  text-transform: uppercase;
+  font-style: italic;
 
-//   // THE REVOLUTION (Rotation Logic)
-//   // This makes the text read upwards
-//   writing-mode: vertical-rl; 
-//   transform: translateY(-50%) rotate(180deg);
+  // THE REVOLUTION (Rotation Logic)
+  // This makes the text read upwards
+  writing-mode: vertical-rl; 
+  transform: translateY(-50%) rotate(180deg);
   
-//   // Set the height for proper alignment (almost the full stage height)
-//   height: 60vh; 
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
+  // Set the height for proper alignment (almost the full stage height)
+  height: 60vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-//   // Positioning specifics
-//   &.left-side {
-//     left: 20px; // Adjust this to push it further in/out
-//     // Bumps the N and E text size up significantly
-//     font-size: 10rem; 
-//   }
+  // Positioning specifics
+  &.left-side {
+    left: 20px; // Adjust this to push it further in/out
+    // Bumps the N and E text size up significantly
+    font-size: 10rem; 
+  }
 
-//   &.right-side {
-//     right: 10px; // Adjust this for side spacing
-//     // Make "Presents" slightly smaller to differentiate
-//     font-size: 10rem; 
-//     color: rgba($c-white, 0.1); // Maybe make this one a purple ghost
-//   }
-// }
+  &.right-side {
+    right: 10px; // Adjust this for side spacing
+    // Make "Presents" slightly smaller to differentiate
+    font-size: 10rem; 
+    color: rgba($c-white, 0.04); // Maybe make this one a purple ghost
+  }
+}
 
-// // ==========================================================================
-// // Adjustments to accommodate the new labels
-// // ==========================================================================
-// .header-branding {
-//   z-index: 25; // Bump up to stay clearly on top
-// }
-// .standings-footer {
-//   z-index: 25; // Bump up to stay clearly on top
-// }
+// ==========================================================================
+// Adjustments to accommodate the new labels
+// ==========================================================================
+.header-branding {
+  z-index: 25; // Bump up to stay clearly on top
+}
+.standings-footer {
+  z-index: 25; // Bump up to stay clearly on top
+}
 
-// .wing-stage {
-//   // Ensure your player stage stays in the middle
-//   position: relative;
-//   z-index: 10;
-//   // (Keep your max-width: 850px here)
-// }
+.wing-stage {
+  // Ensure your player stage stays in the middle
+  position: relative;
+  z-index: 10;
+  // (Keep your max-width: 850px here)
+}
