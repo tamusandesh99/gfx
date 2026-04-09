@@ -9,14 +9,6 @@ import pubgLogo from "../../../public/pics/pubg-sponsors.png";
 import ngclogo from "../../../public/pics/logo2.png";
 
 const MVPBoard = () => {
-  const players = [
-    { rank: 1, name: "", elims: "", img: player1 },
-    { rank: 2, name: "", elims: "", img: player2 },
-    { rank: 3, name: "", elims: "", img: player2 },
-    { rank: 4, name: "", elims: "", img: player2 },
-    { rank: 5, name: "", elims: "", img: player2 },
-  ];
-
   return (
     <div className="app-outer-frame">
       <div className="symmetry-wrapper">
@@ -44,42 +36,65 @@ const MVPBoard = () => {
         </header>
 
         <div className="wing-stage">
-          {players.map((p) => (
-            <div key={p.rank} className={`wing-slot rank-${p.rank}`}>
-              {/* CELL 1: PHOTO */}
-              <div className="char-container">
-                <img src={p.img} alt="player" />
-              </div>
-
-              <div className="vertical-divider"></div>
-
-              <div className="stats-box">
-                {/* CELL 2: LOGO */}
-                <div className="logo-badge">
-                  {/* <img src={logo} alt="team" /> */}
-                </div>
-
-                <div className="vertical-divider"></div>
-
-                {/* CELL 3: NAME */}
-                <div className="name-cell">
-                  <span className="n">{p.name}</span>
-                </div>
-
-                <div className="vertical-divider"></div>
-
-                {/* CELL 4: BRANDING WATERMARK */}
-
-                <div className="vertical-divider"></div>
-
-                {/* CELL 5: RANK & KILLS */}
-                <div className="rank-indicator">
-                  {p.rank === 1 ? "MVP" : `#${p.rank}`}
-                </div>
-                <div className="e">{p.elims}</div>
-              </div>
+          {/* --- ROW 1: THE MVP (SPECIAL) --- */}
+          <div className="wing-slot rank-1">
+            <div className="char-container">
+              <img src={player1} alt="Rank 2" />
+              <div className="char-name"></div>
             </div>
-          ))}
+            <div className="stats-box">
+              <div className="rank-indicator"></div>
+              <div className="e">Elims</div>
+            </div>
+          </div>
+
+          {/* --- ROW 2: RANK 2 --- */}
+          <div className="wing-slot rank-2">
+            <div className="char-container">
+              <img src={player2} alt="Rank 2" />
+              <div className="char-name"></div>
+            </div>
+            <div className="stats-box">
+              <div className="rank-indicator">#2</div>
+              <div className="e">Elims</div>
+            </div>
+          </div>
+
+          {/* --- ROW 3: RANK 3 --- */}
+          <div className="wing-slot rank-3">
+            <div className="char-container">
+              <img src={player2} alt="Rank 2" />
+              <div className="char-name"></div>
+            </div>
+            <div className="stats-box">
+              <div className="rank-indicator">#3</div>
+              <div className="e">Elims</div>
+            </div>
+          </div>
+
+          {/* --- ROW 4: RANK 4 --- */}
+          <div className="wing-slot rank-4">
+            <div className="char-container">
+              <img src={player2} alt="Rank 2" />
+              <div className="char-name"></div>
+            </div>
+            <div className="stats-box">
+              <div className="rank-indicator">#4</div>
+              <div className="e">Elims</div>
+            </div>
+          </div>
+
+          {/* --- ROW 5: RANK 5 --- */}
+          <div className="wing-slot rank-5">
+            <div className="char-container">
+              <img src={player2} alt="Rank 2" />
+              <div className="char-name"></div>
+            </div>
+            <div className="stats-box">
+              <div className="rank-indicator">#5</div>
+              <div className="e">Elims</div>
+            </div>
+          </div>
         </div>
 
         <footer className="standings-footer">

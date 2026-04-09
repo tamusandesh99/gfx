@@ -1,12 +1,14 @@
 // ==========================================================================
 // 1. VARIABLES
 // ==========================================================================
-$c-accent: #bc13fe;       // Electric Purple / Neon Violet
-$c-bg-main: #0a0812;      // Shifted slightly toward deep navy/black for purple harmony
-$c-white: #ffffff;
+
+$c-accent: #b519fd;
+$c-bg-main: #0a0812;
+$c-white: #e2e2e2;
 $c-black: #000000;
-$c-border-stark: #ffffff;
-$base-width: 80em;
+$c-border-stark: black;
+$base-width: 70em;
+// background: url('../../../public/pics/bg1.jpg');
 
 // ==========================================================================
 // 2. CORE FRAME
@@ -14,32 +16,9 @@ $base-width: 80em;
 .app-outer-frame {
   width: $base-width;
   margin: 40px auto;
-  background: $c-bg-main;
   padding: 10px;
   border: 5px solid $c-border-stark;
   position: relative;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    border: 4px solid $c-accent;
-    z-index: 20;
-  }
-  &::before {
-    top: -6px;
-    left: -6px;
-    border-right: 0;
-    border-bottom: 0;
-  }
-  &::after {
-    bottom: -6px;
-    right: -6px;
-    border-left: 0;
-    border-top: 0;
-  }
 }
 
 .symmetry-wrapper {
@@ -51,12 +30,12 @@ $base-width: 80em;
   font-family: "JetBrains Mono", monospace;
   text-transform: uppercase;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border: 2px solid rgba($c-accent, 0.2);
 }
 
-
-// CENTERED BACKGROUND GHOST TEXT
+// ==========================================================================
+// 3. BRANDING & WATERMARKS
 // ==========================================================================
 .bg-center-watermark {
   position: absolute;
@@ -65,10 +44,7 @@ $base-width: 80em;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  
-  // FIXED: Bumped to 2. If it's still gone, try 999 just to see if it appears.
-  z-index: 2; 
-  
+  z-index: 2;
   pointer-events: none;
   display: flex;
   align-items: center;
@@ -76,44 +52,54 @@ $base-width: 80em;
   overflow: hidden;
 
   .ghost-text {
-    opacity: 0.3;
-    font-size: 50rem;
+    opacity: 0.08;
+    font-size: 55rem;
     font-weight: 950;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Lucida Sans", Verdana, sans-serif;
     font-style: italic;
-    
-    // FIXED: Bumped opacity to 0.08. 
-    // Against #140e03, 0.05 can be literally invisible on some monitors.
-    color: rgba($c-white, 0.08); 
-    
-    letter-spacing: -25px;
+    color: rgba($c-white, 1);
+    letter-spacing: -75px;
     line-height: 1;
     white-space: nowrap;
     user-select: none;
   }
 }
 
-// IMPORTANT: Ensure your player rows stay on top
-.wing-stage {
-  position: relative;
-  z-index: 10; // Must be higher than the ghost text
-}
+.vertical-outer-label {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 950;
+  color: rgba($c-white, 0.04);
+  letter-spacing: -10px;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  text-transform: uppercase;
+  font-style: italic;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%) rotate(180deg);
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10rem;
 
-.header-branding, .standings-footer {
-  position: relative;
-  z-index: 20;
+  &.left-side {
+    left: 20px;
+  }
+  &.right-side {
+    right: 10px;
+  }
 }
 
 .header-branding {
-  position: relative;
-  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 25px;
-//   border-bottom: 2px solid rgba($c-white, 0.1);
   color: $c-white;
-  // Subtle blur to help the ghost text feel "deep"
   backdrop-filter: blur(2px);
 
   .side-block {
@@ -145,7 +131,6 @@ $base-width: 80em;
       padding: 3px 15px;
       font-weight: 900;
       font-size: 0.8rem;
-      margin-bottom: 10px;
     }
     .main-title {
       font-size: 4rem;
@@ -155,247 +140,243 @@ $base-width: 80em;
       margin: 0;
       font-style: italic;
       background: linear-gradient(to bottom, $c-white 30%, $c-accent 100%);
-      -webkit-background-clip: text; // Required for Chrome/Safari/Edge
-      background-clip: text; // Standard property
-
-      // 4. HIDE THE ACTUAL TEXT COLOR
-      // This makes the text "hollow" so the background gradient shines through
+      -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
     }
   }
 }
 
 // ==========================================================================
-// 4. WING STAGE (PLAYERS) - HIGH-GLOW EDITION
+// 4. WING STAGE & SLOTS (DECORATED)
 // ==========================================================================
 .wing-stage {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 18px; 
+  gap: 15px;
   justify-content: center;
-  padding: 30px 0;
   position: relative;
   z-index: 10;
-  width: 100%;
-  max-width: 850px; 
-  margin: 0 auto; 
+  width: 750px;
+  margin: 0 auto 10px auto;
 }
 
 .wing-slot {
   width: 100%;
-  height: 8.5vh;
+  height: 10vh;
   display: flex;
   align-items: center;
-  
-  // GLASS MORPHISM BASE
-  background: linear-gradient(
-    90deg, 
-    rgba(20, 15, 35, 0.95) 0%, 
-    rgba(10, 8, 18, 0.8) 100%
-  );
-  
-  // 1. LAYERED SHADOWS (The "Pop" effect)
-  // Shadow 1: Dark ambient drop shadow
-  // Shadow 2: Subtle outer purple bloom
-  // Shadow 3: Inner top highlight (Bezel look)
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.5),
-    0 0 15px rgba($c-accent, 0.05),
-    inset 0 1px 1px rgba($c-white, 0.1);
-
-  border: 1px solid rgba($c-white, 0.05);
-  border-left: 3px solid rgba($c-white, 0.2);
+  background:
+    linear-gradient(90deg, rgba($c-black, 0.9) 0%, rgba($c-black, 0.5) 100%),
+    url("../../../public/pics/bg1.jpg") center/cover;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($c-white, 0.1);
+  border-left: 4px solid rgba($c-white, 0.4);
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease;
 
-  // TOP "NEON" LIGHT STRIP
+  // DECORATION: Subtle scanning line animation
   &::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba($c-accent, 0.3), transparent);
-    z-index: 2;
-  }
-
-  .vertical-divider {
-    width: 1px;
+    left: -100%;
+    width: 50%;
     height: 100%;
     background: linear-gradient(
-      to bottom, 
-      transparent, 
-      rgba($c-white, 0.15), 
+      90deg,
+      transparent,
+      rgba($c-accent, 0.05),
       transparent
     );
-    flex-shrink: 0;
+    transform: skewX(-25deg);
+    animation: wing-scan 4s infinite linear;
+    z-index: 1;
   }
 
   .char-container {
-    width: 110px;
+    width: 80%;
     height: 100%;
-    background: #000;
-    flex-shrink: 0;
+    display: flex;
+    align-items: center;
     position: relative;
-    border-right: 1px solid rgba($c-accent, 0.2);
+    background: rgba($c-black, 0.5);
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+    overflow: hidden;
+    z-index: 2;
 
-    // VIGNETTE OVER PHOTO
+    // DECORATION: The "Inner Glow" on the cut edge
     &::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.4) 100%);
+      right: 0;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: $c-accent;
+      box-shadow: 0 0 10px $c-accent;
+      opacity: 0.3;
     }
 
-    img { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: cover; 
-      object-position: top; 
+    img {
+      width: 35%;
+      height: 120%;
+      object-fit: cover;
+      object-position: 50% 11%;
+      z-index: 5;
+      transform: scale(1.1);
+      transform-origin: top;
+      filter: grayscale(0.2) contrast(1.1)
+        drop-shadow(5px 0 10px rgba($c-black, 0.5));
+    }
+
+    .char-name {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 25px;
+      background: linear-gradient(270deg, rgba($c-white, 0.5), transparent);
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: $c-white;
     }
   }
 
   .stats-box {
     flex: 1;
+    height: 100%;
     display: flex;
     align-items: center;
-    height: 100%;
-    padding: 0 25px;
+    padding: 0 30px;
+    position: relative;
+    z-index: 2;
 
-    .logo-badge {
-      width: 60px;
-      margin-right: 15px;
-      // LOGO GLOW
-      filter: drop-shadow(0 0 8px rgba($c-white, 0.2));
-      img { width: 45px; height: 45px; object-fit: contain; }
-    }
-
-    .name-cell {
-      flex: 1;
-      .n {
-        font-size: 1.6rem;
-        font-weight: 950;
-        color: $c-white;
-        letter-spacing: 1px;
-        // HARDSHELL TEXT SHADOW
-        text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    .rank-indicator {
+      font-family: "JetBrains Mono", monospace;
+      color: rgba($c-white, 0.5);
+      font-weight: 950;
+      font-size: 1.2rem;
+      margin-left: -30px;
+      // DECORATION: Dot pattern next to rank
+      &::before {
+        content: ":::";
+        margin-right: 20px;
+        color: $c-accent;
       }
     }
 
-    .rank-indicator {
-      font-family: "JetBrains Mono";
-      color: rgba($c-white, 0.4);
-      font-weight: 900;
-      font-size: 1.1rem;
-      padding-right: 25px;
-    }
-
     .e {
-      width: 100px;
-      height: 55%;
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba($c-accent, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
+      position: absolute;
+      bottom: 12px;
+      right: 10px;
       font-weight: 900;
-      color: $c-white;
-      position: relative;
-      
-      // INTERNAL BOX GLOW
-      box-shadow: inset 0 0 15px rgba($c-accent, 0.2);
+      color: $c-accent;
+      text-align: right;
+      font-size: 1.3rem;
+      line-height: 1;
 
-      &::before {
-        content: "KILLS";
-        position: absolute;
-        top: -18px;
-        font-size: 0.6rem;
+      &::after {
+        content: " KILLS"; // Swapped to full word for more "data" feel
+        font-size: 0.55rem;
+        display: block;
+        opacity: 0.6;
+        color: $c-white;
         letter-spacing: 2px;
-        color: $c-accent;
-        text-shadow: 0 0 5px rgba($c-accent, 0.5);
       }
     }
   }
 
-  // ==========================================================================
-  // --- MVP (RANK 1) - THE "ULTRA" GLOW ---
-  // ==========================================================================
+  // --- MVP SPECIAL STYLING (RANK 1) ---
   &.rank-1 {
-    height: 18vh;
-    border: 1px solid rgba($c-accent, 0.8);
-    border-left: 10px solid $c-accent;
-    background: linear-gradient(
-      90deg, 
-      rgba($c-accent, 0.2) 0%, 
-      rgba(5, 5, 15, 1) 100%
-    );
+    height: 17vh;
+    width: 53em;
+    margin: 0 auto 20px auto;
+    border: 2px solid $c-accent;
+    border-left: 12px solid $c-accent;
+    background: rgba($c-black, 0.98);
+    overflow: visible;
+    z-index: 50;
+    box-shadow: 0 0 40px rgba($c-accent, 0.2);
 
-    // INTENSE BLOOM SHADOW
-    box-shadow: 
-      0 20px 60px rgba(0, 0, 0, 0.8),
-      0 0 40px rgba($c-accent, 0.3),
-      inset 0 0 20px rgba($c-accent, 0.1);
-
-    &::before {
-      height: 3px;
-      background: linear-gradient(90deg, $c-accent, $c-white, $c-accent);
-      box-shadow: 0 0 15px $c-accent;
+    // DECORATION: Corner "Brackets" for the Winner
+    &::after {
+      content: "TOP FRAGGER";
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: $c-accent;
+      color: $c-black;
+      font-size: 0.6rem;
+      padding: 2px 10px;
+      font-weight: 900;
     }
 
     .char-container {
-      width: 180px;
-      border-right: 2px solid $c-accent;
-      &::after {
-        background: linear-gradient(to top, rgba($c-accent, 0.5) 0%, transparent 60%);
+      width: 75%;
+      overflow: visible;
+      background: $c-white;
+      clip-path: none;
+
+      img {
+        width: 45%;
+        height: 165%;
+        position: absolute;
+        bottom: 0;
+        left: -50px;
+        z-index: 100;
+        transform: scale(1.14);
+        transform-origin: bottom;
+        object-position: 50% -40%;
+        filter: drop-shadow(10px -10px 20px rgba($c-black, 0.4));
+      }
+
+      .char-name {
+        padding-left: 45%;
+        color: $c-black;
+        font-size: 3rem;
+        font-weight: 1000;
+        background: transparent;
+        &::before {
+          color: $c-accent;
+          font-size: 1rem;
+          vertical-align: middle;
+        }
       }
     }
 
-    .name-cell .n {
-      font-size: 2.8rem;
-      color: $c-white;
-      // HYPER GLOW ON NAME
-      text-shadow: 
-        0 0 10px rgba($c-accent, 0.8),
-        0 0 30px rgba($c-accent, 0.4);
-    }
+    .stats-box {
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 5px,
+        rgba($c-accent, 0.03) 5px,
+        rgba($c-accent, 0.03) 10px
+      );
 
-    .rank-indicator {
-      font-size: 2.2rem;
-      color: $c-accent;
-      text-shadow: 0 0 15px rgba($c-accent, 0.5);
-    }
-
-    .e {
-      width: 160px;
-      height: 70%;
-      background: $c-accent;
-      border: none;
-      color: $c-white;
-      font-size: 4rem;
-      // OUTER SCORE GLOW
-      box-shadow: 0 0 30px rgba($c-accent, 0.6);
-
-      &::before {
-        color: $c-white;
-        font-size: 1rem;
-        top: -24px;
-        text-shadow: 0 0 10px rgba($c-accent, 1);
+      .e {
+        bottom: 18px;
+        right: 25px;
+        font-size: 2.5rem;
+        text-shadow: 0 0 20px rgba($c-accent, 0.8);
+        &::after {
+          color: $c-accent;
+          opacity: 1;
+          font-weight: 700;
+        }
       }
     }
   }
 }
+
 // ==========================================================================
-// 5. FOOTER (STUCK TO RADIUS)
+// 5. FOOTER
 // ==========================================================================
 .standings-footer {
   width: 100%;
   margin-top: auto;
-  position: relative;
-  z-index: 10;
 
   .sponsor-banner {
     margin: 0 -40px;
@@ -409,82 +390,11 @@ $base-width: 80em;
 
     .sponsor-logo {
       height: 80px;
-      margin-top: -30px;
-      margin-left: -50px;
+      margin: -30px 0 0 -50px;
     }
     .ngc-footer-logo {
       height: 50px;
-      margin-top: -10px;
-      margin-right: -40px;
+      margin: -10px -40px 0 0;
     }
   }
-}
-
-// ==========================================================================
-// VERTICAL MARGIN TEXT (The Outer Frame Labels)
-// ==========================================================================
-.symmetry-wrapper {
-  // CRITICAL: Ensure the wrapper is the positioning parent
-  position: relative; 
-  overflow: hidden;
-}
-
-.vertical-outer-label {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%); // Perfectly center vertically
-  z-index: 5; // Sits above the watermark, below header/footer (z-10/20)
-  
-  // THE TEXT TYPOGRAPHY
-  font-family: "JetBrains Mono", monospace;
-  font-weight: 950;
-  color: rgba($c-white, 0.04); // Keep it subtle and ghosted
-  letter-spacing: -10px; // Tight letter-spacing for large vertical text
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-  text-transform: uppercase;
-  font-style: italic;
-
-  // THE REVOLUTION (Rotation Logic)
-  // This makes the text read upwards
-  writing-mode: vertical-rl; 
-  transform: translateY(-50%) rotate(180deg);
-  
-  // Set the height for proper alignment (almost the full stage height)
-  height: 60vh; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  // Positioning specifics
-  &.left-side {
-    left: 20px; // Adjust this to push it further in/out
-    // Bumps the N and E text size up significantly
-    font-size: 10rem; 
-  }
-
-  &.right-side {
-    right: 10px; // Adjust this for side spacing
-    // Make "Presents" slightly smaller to differentiate
-    font-size: 10rem; 
-    color: rgba($c-white, 0.04); // Maybe make this one a purple ghost
-  }
-}
-
-// ==========================================================================
-// Adjustments to accommodate the new labels
-// ==========================================================================
-.header-branding {
-  z-index: 25; // Bump up to stay clearly on top
-}
-.standings-footer {
-  z-index: 25; // Bump up to stay clearly on top
-}
-
-.wing-stage {
-  // Ensure your player stage stays in the middle
-  position: relative;
-  z-index: 10;
-  // (Keep your max-width: 850px here)
 }
