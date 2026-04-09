@@ -14,8 +14,8 @@ import Daily23 from './Components/Daily23'
 function App() {
   return (
     <>
-      <MVP1 />
-      {/* <MVP2 /> */}
+      {/* <MVP1 /> */}
+      <MVP2 />
       {/* <Daily20 />  */}
       {/* <Daily23 />  */}
     </>
