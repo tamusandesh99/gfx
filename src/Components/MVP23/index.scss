@@ -19,6 +19,7 @@
 //   padding: 10px;
 //   border: 5px solid $c-border-stark;
 //   position: relative;
+//   background: $c-black;
 // }
 
 // .symmetry-wrapper {
@@ -309,17 +310,18 @@
 
 
 //   // --- MVP SPECIAL STYLING (RANK 1) ---
-//   &.rank-1 {
+//    &.rank-1 {
 //     height: 17vh;
 //     width: 53em;
 //     margin: 0 auto 20px auto;
 //     border: 2px solid $c-accent;
 //     border-left: 12px solid $c-accent;
 //     background: rgba($c-black, 0.98);
+
 //     overflow: visible;
 //     z-index: 50;
 //     box-shadow: 0 0 40px rgba($c-accent, 0.2);
-
+//     filter: drop-shadow(0px 0px 10px $c-accent);
 //     &::after {
 //       content: "TOP FRAGGER";
 //       position: absolute;
@@ -335,7 +337,9 @@
 //     .char-container {
 //       width: 75%;
 //       overflow: visible;
-//       background: $c-white;
+//       background:
+//         linear-gradient(90deg, rgba($c-black, 1) 40%, rgba($c-white, 0.6) 100%),
+//         url("../../../public/pics/bg1.jpg") center/cover;
 //       clip-path: none;
 
 //       img {
