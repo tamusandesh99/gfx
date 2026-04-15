@@ -2,6 +2,7 @@ import React from 'react';
 import './index.scss';
 import r1 from '../../../public/pics/roster1-png.png';
 import r2 from '../../../public/pics/roster2-png.png';
+import r3 from '../../../public/pics/roster3-png.png';
 import bg from '../../../public/pics/bg4.jpg';
 import sponsors from '../../../public/pics/pubg-sponsors.png';
 import ngclogo from '../../../public/pics/logo2.png';
@@ -17,14 +18,14 @@ const SuperSunday = () => {
       <div className="super-sunday-layout">
         
         {/* Floating Layer: Absolute Header */}
-        {/* <header className="absolute-header">
+        <header className="absolute-header">
           <p className="agency-name">NGC ESPORTS</p>
           <h1 className="main-title">SUPER SUNDAY</h1>
           <div className="header-info-row">
             <div className="badge time"><span>20:00 CEST</span></div>
             <div className="badge prize"><span>PRIZE: €20</span></div>
           </div>
-        </header> */}
+        </header>
 
         {/* Stacked Layer: Players Row */}
         <section className="renders-row">
@@ -36,8 +37,8 @@ const SuperSunday = () => {
           <div className="trophy-gap"></div>
 
           <div className="render-group right-side">
-            <img src={r1} alt="R1" className="r1" />
-            <img src={r2} alt="R2" className="r2" />
+            <img src={r3} alt="R1" className="r3" />
+            <img src={r2} alt="R2" className="r4" />
           </div>
         </section>
 
