@@ -11,40 +11,47 @@ const SuperSunday = () => {
 
   return (
     <div className="app-container">
-      {/* Background Layers */}
-      <div 
-        className="bg-image" 
-        style={{ backgroundImage: `url(${bg})` }} 
-      />
+      <div className="bg-image" style={{ backgroundImage: `url(${bg})` }} />
       <div className="bg-overlay" />
 
-      {/* Main Layout */}
       <div className="super-sunday-layout">
         
-        <div className="teams-section">
-          <header className="header-area">
-            <p className="agency-name">NGC ESPORTS</p>
-            <h1 className="main-title">SUPER<br/>SUNDAY</h1>
-            <div className="prize-badge">
-              <span>PRIZE: 20 EURO</span>
-            </div>
-          </header>
-          
-          <div className="teams-grid">
-            {teamSlots.map((_, index) => (
-              <div key={index} className="team-slot" />
-            ))}
+        {/* Floating Layer: Absolute Header */}
+        {/* <header className="absolute-header">
+          <p className="agency-name">NGC ESPORTS</p>
+          <h1 className="main-title">SUPER SUNDAY</h1>
+          <div className="header-info-row">
+            <div className="badge time"><span>20:00 CEST</span></div>
+            <div className="badge prize"><span>PRIZE: €20</span></div>
           </div>
+        </header> */}
+
+        {/* Stacked Layer: Players Row */}
+        <section className="renders-row">
+          <div className="render-group left-side">
+            <img src={r1} alt="R1" className="r1" />
+            <img src={r2} alt="R2" className="r2" />
+          </div>
+
+          <div className="trophy-gap"></div>
+
+          <div className="render-group right-side">
+            <img src={r1} alt="R1" className="r1" />
+            <img src={r2} alt="R2" className="r2" />
+          </div>
+        </section>
+
+        {/* Stacked Layer: Team Grid */}
+        <div className="teams-grid">
+          {teamSlots.map((_, index) => (
+            <div key={index} className="team-slot" />
+          ))}
         </div>
 
-        <div className="renders-section">
-          <img src={r1} alt="Roster 1" className="player-image r1" />
-          <img src={r2} alt="Roster 2" className="player-image r2" />
-        </div>
-
+        {/* Stacked Layer: Footer */}
         <footer className="footer-branding">
-          <img src={sponsors} alt="PUBG Sponsors" className="sponsor-logo" />
-          <img src={ngclogo} alt="NGC Logo" className="ngc-logo" />
+          <img src={sponsors} alt="Sponsors" className="sponsor-logo" />
+          <img src={ngclogo} alt="Logo" className="ngc-logo" />
         </footer>
 
       </div>
