@@ -6,6 +6,7 @@ import r3 from '../../../public/pics/roster3-png.png';
 import bg from '../../../public/pics/bg4.jpg';
 import sponsors from '../../../public/pics/pubg-sponsors.png';
 import ngclogo from '../../../public/pics/logo2.png';
+import cratelogo from '../../../public/pics/crate20.png';
 
 const SuperSunday = () => {
   const teamSlots = Array.from({ length: 18 });
@@ -19,7 +20,7 @@ const SuperSunday = () => {
         
         {/* Floating Layer: Absolute Header */}
         <header className="absolute-header">
-          <p className="agency-name">NGC ESPORTS</p>
+          <p className="agency-name"><span>NGC ESPORTS</span></p>
           <h1 className="main-title">SUPER SUNDAY</h1>
           <div className="header-info-row">
             <div className="badge time"><span>20:00 CEST</span></div>
@@ -34,7 +35,9 @@ const SuperSunday = () => {
             <img src={r2} alt="R2" className="r2" />
           </div>
 
-          <div className="trophy-gap"></div>
+          <div className="trophy-gap">
+            <img src={cratelogo} alt="Crate Logo" className="crate-logo" />
+          </div>
 
           <div className="render-group right-side">
             <img src={r3} alt="R1" className="r3" />
