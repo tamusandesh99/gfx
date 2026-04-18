@@ -8,6 +8,7 @@ import bg from "../../../public/pics/bg4.jpg";
 import sponsors from "../../../public/pics/pubg-sponsors.png";
 import ngclogo from "../../../public/pics/logo2.png";
 import cratelogo from "../../../public/pics/crate20.png";
+import pubgLogo from "../../../public/pics/pubg-logo-b.png";
 
 const SuperSunday = () => {
   const teamSlots = Array.from({ length: 18 });
@@ -18,6 +19,7 @@ const SuperSunday = () => {
       <div className="bg-overlay" />
 
       <div className="super-sunday-layout">
+        <img src={pubgLogo} alt="PUBG Logo" className="pubg-logo" />
         <div className="ribbon-tangle">
           <div className="ribbon ribbon-left"></div>
           <div className="ribbon ribbon-right"></div>
