@@ -1,12 +1,13 @@
-import React from 'react';
-import './index.scss';
-import r1 from '../../../public/pics/roster1-png.png';
-import r2 from '../../../public/pics/roster2-png.png';
-import r3 from '../../../public/pics/roster3-png.png';
-import bg from '../../../public/pics/bg4.jpg';
-import sponsors from '../../../public/pics/pubg-sponsors.png';
-import ngclogo from '../../../public/pics/logo2.png';
-import cratelogo from '../../../public/pics/crate20.png';
+import React from "react";
+import "./index.scss";
+import r1 from "../../../public/pics/roster1-png.png";
+import r2 from "../../../public/pics/roster2-png.png";
+import r3 from "../../../public/pics/roster3-png.png";
+import r4 from "../../../public/pics/roster4-png.png";
+import bg from "../../../public/pics/bg4.jpg";
+import sponsors from "../../../public/pics/pubg-sponsors.png";
+import ngclogo from "../../../public/pics/logo2.png";
+import cratelogo from "../../../public/pics/crate20.png";
 
 const SuperSunday = () => {
   const teamSlots = Array.from({ length: 18 });
@@ -17,14 +18,23 @@ const SuperSunday = () => {
       <div className="bg-overlay" />
 
       <div className="super-sunday-layout">
-        
+        <div className="ribbon-tangle">
+          <div className="ribbon ribbon-left"></div>
+          <div className="ribbon ribbon-right"></div>
+        </div>
         {/* Floating Layer: Absolute Header */}
         <header className="absolute-header">
-          <p className="agency-name"><span>NGC ESPORTS</span></p>
+          <p className="agency-name">
+            <span>NGC ESPORTS</span>
+          </p>
           <h1 className="main-title">SUPER SUNDAY</h1>
           <div className="header-info-row">
-            <div className="badge time"><span>20:00 CEST</span></div>
-            <div className="badge prize"><span>PRIZE: €20</span></div>
+            <div className="badge time">
+              <span>20:00 CEST</span>
+            </div>
+            <div className="badge prize">
+              <span>PRIZE: €20</span>
+            </div>
           </div>
         </header>
 
@@ -41,7 +51,7 @@ const SuperSunday = () => {
 
           <div className="render-group right-side">
             <img src={r3} alt="R1" className="r3" />
-            <img src={r2} alt="R2" className="r4" />
+            <img src={r4} alt="R2" className="r4" />
           </div>
         </section>
 
@@ -57,7 +67,6 @@ const SuperSunday = () => {
           <img src={sponsors} alt="Sponsors" className="sponsor-logo" />
           <img src={ngclogo} alt="Logo" className="ngc-logo" />
         </footer>
-
       </div>
     </div>
   );

@@ -3,12 +3,12 @@ $primary-pink: #ff00f7;
 $slot-background: #d5a3da;
 $text-dark: #1a1a1a;
 $slot-bg: #ffe9fb;
-$overlay-color: rgba(0, 0, 0, 0.2);
+$overlay-color: rgb(253, 201, 242);
 $divier-background-color: rgb(248, 123, 231);
 $agency-bg: rgba(87, 2, 85, 0.6);
 $agency-text-color: rgb(255, 255, 255);
 
-$content-width: 1000px;
+$content-width: 1100px;
 body {
   margin: 0;
   display: flex;
@@ -60,15 +60,64 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 10px 0; // Tightened vertical padding
   box-sizing: border-box;
-  // 1. ABSOLUTE HEADER
+
+  .ribbon-tangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+
+    .ribbon {
+      position: absolute;
+      width: 200%; // Large width needed because of the steep rotation
+      height: 45px; // Slightly thicker since there are only two
+      background: rgba($agency-text-color, 0.5);
+      border-top: 2px solid $primary-pink;
+      border-bottom: 2px solid $primary-pink;
+      box-shadow: 0 0 30px rgba($primary-pink, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::after {
+        content: "NGC ESPORTS • NGC ESPORTS • SUPER SUNDAY •";
+        color: rgba($primary-pink, 0.5);
+        font-size: 0.9rem;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+      }
+    }
+
+    // Top Left Ribbon
+    .ribbon-left {
+      bottom: -10%;
+      left: -20%;
+      transform: rotate(140deg);
+      filter: blur(3px);
+      opacity: 0.4;
+    }
+
+    // Bottom Right Ribbon
+    .ribbon-right {
+      top: -5%;
+      right: -20%;
+      transform: rotate(140deg);
+      filter: blur(3px); // Keep the front one sharp
+      opacity: 0.4;
+    }
+  }
+
   .absolute-header {
     position: absolute;
     top: 45%; // Slightly higher to avoid crowding the grid
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 78%;
+    width: 85%;
     text-align: center;
     z-index: 20;
     pointer-events: none;
@@ -100,18 +149,17 @@ body {
       display: inline-block;
       width: auto;
       padding: 6px 50px;
-      font-size: 1.1rem;
+      font-size: 1.5rem;
       margin: 0 auto 8px auto;
       letter-spacing: 10px;
       text-transform: uppercase;
       transform: skewX(-15deg);
       border-bottom: 2px solid $primary-pink;
-      margin-bottom: -5px;
 
       span {
         display: block;
         transform: skewX(15deg);
-        font-weight: 900;
+        // font-weight: 600;
         text-shadow: 0 0 10px rgba(255, 0, 247, 0.8); // Pink glow on the letters
       }
     }
@@ -119,7 +167,7 @@ body {
     .main-title {
       font-size: 6rem;
       line-height: 0.9;
-      margin: 5px 0;
+
       color: $text-dark;
       font-style: italic;
       text-transform: uppercase;
@@ -163,7 +211,6 @@ body {
     align-items: flex-end;
     position: relative;
     z-index: 5;
-
     .render-group {
       position: relative;
       width: 400px;
@@ -181,28 +228,28 @@ body {
       }
 
       &.left-side {
-
         .r1 {
           left: 0;
           z-index: 3;
+          height: 100%;
         }
         .r2 {
-          left: 60px;
+          left: 130px;
           z-index: 4;
-          height: 110%;
+          height: 100%;
         }
       }
 
       &.right-side {
-
         .r3 {
           right: 130px;
           z-index: 4;
           height: 100%;
         }
         .r4 {
-          right: -80px;
+          right: -10px;
           z-index: 3;
+          height: 90%;
         }
       }
     }
@@ -237,15 +284,14 @@ body {
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 8px;
-    margin: 10px auto 0 auto; // Reduced margin from 35px to 20px
+    margin: 20px auto -10px auto; // Reduced margin from 35px to 20px
     width: $content-width;
     z-index: 6;
-
+    // margin-top: 10px;
     .team-slot {
-      background: #d1d1d1; // Solid neutral grey base
       background: linear-gradient(
         145deg,
-        #fafafa,
+        #ffffff,
         $slot-background
       ); // Subtle diagonal shine
       border: 2px solid $primary-pink;
@@ -261,13 +307,10 @@ body {
   // 4. FOOTER - Fixed positioning within the layout
   .footer-branding {
     width: 100%;
-    margin: auto auto 15px auto; // margin-top auto ensures it's at the bottom
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 6;
-    padding-top: 10px;
-    // border: 1px solid red;
 
     .sponsor-logo {
       height: 75px;
