@@ -5,8 +5,9 @@ import r2 from "../../../public/pics/roster2-png.png";
 import r3 from "../../../public/pics/roster3-png.png";
 import r4 from "../../../public/pics/roster4-png.png";
 import bg from "../../../public/pics/bg4.jpg";
-import sponsors from "../../../public/pics/pubg-sponsors.png";
+import sponsors from "../../../public/pics/sponsor-b.png";
 import ngclogo from "../../../public/pics/logo2.png";
+import ngclogoEsports from "../../../public/pics/logo1.png";
 import cratelogo from "../../../public/pics/crate20.png";
 import pubgLogo from "../../../public/pics/pubg-logo-b.png";
 
@@ -20,6 +21,7 @@ const SuperSunday = () => {
 
       <div className="super-sunday-layout">
         <img src={pubgLogo} alt="PUBG Logo" className="pubg-logo" />
+        <img src={ngclogoEsports} alt="NGC Logo" className="NGC-esports-logo" />
         <div className="ribbon-tangle">
           <div className="ribbon ribbon-left"></div>
           <div className="ribbon ribbon-right"></div>
