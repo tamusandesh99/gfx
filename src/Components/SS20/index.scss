@@ -1,12 +1,23 @@
-// Variables
-$primary-pink: #ff00f7;
-$slot-background: #d5a3da;
-$text-dark: #1a1a1a;
-$slot-bg: #ffe9fb;
-$overlay-color: rgb(253, 201, 242);
-$divier-background-color: rgb(248, 123, 231);
-$agency-bg: rgba(87, 2, 85, 0.6);
-$agency-text-color: rgb(255, 255, 255);
+// 20
+// $primary-pink: #ff00f7;
+// $slot-background: #d5a3da;
+// $text-dark: #1a1a1a;
+// $overlay-color: rgb(253, 201, 242);
+// $divier-background-color: rgb(248, 123, 231);
+// $agency-bg: rgba(87, 2, 85, 0.6);
+// $agency-text-color: rgb(255, 255, 255);
+// $bg-color-top: rgba(255, 0, 122, 0.1);
+
+// 28 - Clean White & Electric Cyan
+$primary-pink: rgb(0, 216, 198);     // Your new Cyan color
+$slot-background: #a4c7c2;          // White for the grid base
+$text-dark: #000000;                // Pure Black for high contrast
+$overlay-color: rgba(48, 255, 238, 0.884); // Heavy white overlay to fade the BG image
+$divier-background-color: rgb(0, 255, 242); // Faint cyan wash
+$agency-bg: rgb(0, 247, 255);  // Very light cyan glass effect
+$agency-text-color: #000000;
+$bg-color-top: rgba(0, 255, 234, 0.178);
+
 
 $content-width: 1100px;
 body {
@@ -46,7 +57,7 @@ body {
     height: 100%;
     background: linear-gradient(
       180deg,
-      rgba(255, 0, 122, 0.1) 0%,
+     $bg-color-top 0%,
       $overlay-color 100%
     );
     z-index: 2;
@@ -178,7 +189,7 @@ body {
         display: block;
         transform: skewX(15deg);
         // font-weight: 600;
-        text-shadow: 0 0 10px rgba(255, 0, 247, 0.8); // Pink glow on the letters
+        text-shadow: 0 0 10px rgba($bg-color-top, 0.8); // Pink glow on the letters
       }
     }
 

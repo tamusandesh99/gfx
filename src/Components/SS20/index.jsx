@@ -8,7 +8,7 @@ import bg from "../../../public/pics/bg4.jpg";
 import sponsors from "../../../public/pics/sponsor-b.png";
 import ngclogo from "../../../public/pics/logo2.png";
 import ngclogoEsports from "../../../public/pics/logo1.png";
-import cratelogo from "../../../public/pics/crate20.png";
+import cratelogo from "../../../public/pics/crate23-2.png";
 import pubgLogo from "../../../public/pics/pubg-logo-b.png";
 
 const SuperSunday = () => {
@@ -34,7 +34,7 @@ const SuperSunday = () => {
           <h1 className="main-title">SUPER SUNDAY</h1>
           <div className="header-info-row">
             <div className="badge time">
-              <span>20:00 CEST</span>
+              <span>23:00 CEST</span>
             </div>
             <div className="badge prize">
               <span>PRIZE: €20</span>
