@@ -1,12 +1,23 @@
 import React from "react";
 import "./index.scss";
 
-import r1 from "../../../public/pics/roster8-png.png";
-import r2 from "../../../public/pics/roster6-png.png";
-import r3 from "../../../public/pics/roster5-png.png";
-import r4 from "../../../public/pics/roster9-png.png";
+// import r1 from "../../../public/pics/roster10-png.png";
+// import r2 from "../../../public/pics/roster2-png.png";
+// import r3 from "../../../public/pics/roster3-png.png";
+// import r4 from "../../../public/pics/roster4-png.png";
 
-import cratelogo from "../../../public/pics/crate23-2.png";
+import r1 from "../../../public/pics/fake2.png";
+import r2 from "../../../public/pics/fake1.png";
+import r3 from "../../../public/pics/fake3.png";
+import r4 from "../../../public/pics/fake4.png";
+
+// import r1 from "../../../public/pics/fake1.png";
+// import r2 from "../../../public/pics/fake5.png";
+// import r3 from "../../../public/pics/fake4.png";
+// import r4 from "../../../public/pics/fake3.png";
+
+import cratelogo from "../../../public/pics/crate20-2.png";
+// import cratelogo from "../../../public/pics/crate23-2.png";
 
 import bg from "../../../public/pics/bg4.jpg";
 import sponsors from "../../../public/pics/sponsor-b.png";
@@ -37,7 +48,7 @@ const SuperSunday = () => {
           <h1 className="main-title">SUPER SUNDAY</h1>
           <div className="header-info-row">
             <div className="badge time">
-              <span>23:00 CEST</span>
+              <span>20:00 CEST</span>
             </div>
             <div className="badge prize">
               <span>PRIZE: €20</span>
