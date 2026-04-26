@@ -1,15 +1,20 @@
 import React from "react";
 import "./index.scss";
 
-// import r1 from "../../../public/pics/roster10-png.png";
-// import r2 from "../../../public/pics/roster2-png.png";
-// import r3 from "../../../public/pics/roster3-png.png";
-// import r4 from "../../../public/pics/roster4-png.png";
+import r1 from "../../../public/pics/roster10-png.png";
+import r2 from "../../../public/pics/roster4-png.png";
+import r3 from "../../../public/pics/roster11-png.png";
+import r4 from "../../../public/pics/nati.png";
 
-import r1 from "../../../public/pics/fake2.png";
-import r2 from "../../../public/pics/fake1.png";
-import r3 from "../../../public/pics/fake3.png";
-import r4 from "../../../public/pics/fake4.png";
+// import r1 from "../../../public/pics/roster10-png.png";
+// import r2 from "../../../public/pics/roster6-png.png";
+// import r3 from "../../../public/pics/roster2-png.png";
+// import r4 from "../../../public/pics/meow.png";
+
+// import r1 from "../../../public/pics/fake2.png";
+// import r2 from "../../../public/pics/fake1.png";
+// import r3 from "../../../public/pics/fake3.png";
+// import r4 from "../../../public/pics/fake4.png";
 
 // import r1 from "../../../public/pics/fake1.png";
 // import r2 from "../../../public/pics/fake5.png";
