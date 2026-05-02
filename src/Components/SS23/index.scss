@@ -1,0 +1,263 @@
+// --- Variables ---
+$bg-color: #4b4230;
+$overlay-color: #ffcc00; // Used for gold accents and spotlights
+$text-color: #ffffff; // Used for silver text
+$hex-border: #ffd000; // Used for neon blue accents
+$light-color: #794a4a; // Used for white text
+
+// --- Canvas ---
+.thumbnail-canvas {
+  width: 1280px;
+  height: 720px;
+  background: $bg-color;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  // Using $bg-color and $overlay-color as defined
+  background: linear-gradient(
+    180deg,
+    $bg-color 0%,
+    rgba($overlay-color, 0.2) 100%
+  );
+  z-index: 2;
+}
+
+.corner {
+  position: absolute;
+  z-index: 10;
+  object-fit: contain;
+
+  &.tr,
+  &.br {
+    filter: brightness(0);
+    opacity: 0.8;
+  }
+
+  &.tl {
+    top: 10px;
+    left: 10px;
+    width: 50px;
+  }
+  &.tr {
+    top: 10px;
+    right: 10px;
+    width: 50px;
+  }
+  &.bl {
+    bottom: 10px;
+    left: 10px;
+    width: 350px;
+  }
+  &.br {
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+  }
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba($hex-border, 0.15) 0%,
+    transparent 80%
+  );
+
+  .spotlight {
+    position: absolute;
+    top: -50px;
+    width: 100%;
+    height: 300px;
+    background: radial-gradient(
+      ellipse at center,
+      rgba($overlay-color, 0.1),
+      transparent 70%
+    );
+  }
+}
+
+// --- Header ---
+.header-section {
+  z-index: 10;
+  text-align: center;
+  margin-top: 10px;
+
+  .main-title {
+    font-size: 100px;
+    font-weight: 900;
+    margin: 0;
+    text-transform: uppercase;
+    font-style: italic;
+
+    .silver {
+      color: $text-color;
+      text-shadow: 0 0 15px rgba($text-color, 0.3);
+    }
+    .gold {
+      color: $overlay-color;
+      text-shadow: 0 0 20px rgba($overlay-color, 0.5);
+    }
+  }
+
+  .branding {
+    font-size: 24px;
+    letter-spacing: 5px;
+    margin-top: -15px;
+    color: $text-color;
+
+    .gold-text {
+      color: $overlay-color;
+    }
+  }
+}
+
+// --- Honeycomb 4-5-4-5 ---
+.content-wrap {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-wrapper {
+  position: absolute;
+  height: 550px;
+  z-index: 7;
+  pointer-events: none;
+
+  overflow: visible !important;
+
+  img {
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 40px;
+    filter: saturate(0.8) contrast(1.2) brightness(0.9)
+      drop-shadow(0 0 25px rgba($overlay-color, 0.6))
+      drop-shadow(0 0 10px rgba(0, 0, 0, 1));
+  }
+
+  // The Rim Light / Glow effect
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: screen;
+    z-index: 8;
+  }
+
+  &.player-tl {
+    top: -150px;
+    left: -100px;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+  }
+
+  &.player-bl {
+    bottom: -80px;
+    left: -100px;
+    -webkit-mask-image: linear-gradient(to top, transparent, black 25%);
+  }
+
+  &.player-tr {
+    top: -150px;
+    right: -100px;
+    transform: scaleX(1);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%);
+  }
+
+  &.player-br {
+    bottom: -80px;
+    right: -100px;
+    transform: scaleX(1);
+    -webkit-mask-image: linear-gradient(to top, transparent, black 25%);
+  }
+}
+
+.honeycomb-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+
+  .hex-row {
+    display: flex;
+    justify-content: center;
+    &:not(:first-child) {
+      margin-top: -28px;
+    }
+  }
+}
+
+.hexagon {
+  width: 140px;
+  height: 135px;
+  background: $hex-border;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 -2px;
+  filter: drop-shadow(0 0 8px rgba($hex-border, 0.6));
+
+  .hex-inner {
+    width: 130px;
+    height: 125px;
+    background: linear-gradient(180deg, #161616 0%, $bg-color 100%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.trophy-silhouette {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%); // Perfectly centered
+  width: 400px;  // Make it large enough to peek out behind the grid
+  height: 400px;
+  
+  // Use your gold variable but very faint
+  background: $overlay-color; 
+  opacity: 0.07; 
+  
+  // The mask creates the shape
+  mask: url("https://cdn-icons-png.flaticon.com/512/3112/3112946.png") no-repeat center;
+  mask-size: contain;
+  -webkit-mask: url("https://cdn-icons-png.flaticon.com/512/3112/3112946.png") no-repeat center;
+  -webkit-mask-size: contain;
+
+  // This ensures it stays behind the honeycomb and players
+  z-index: 3; 
+}

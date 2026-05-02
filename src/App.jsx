@@ -12,6 +12,7 @@ import MVP2 from './Components/MVP23'
 import Daily23 from './Components/Daily23'
 import  SS20 from './Components/SS20'
 import Tournament from './Components/Tournament'
+import SS23 from './Components/SS23'
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
       {/* <Daily20 />  */}
       {/* <Daily23 />  */}
       {/* <SS20 />   */}
-      <Tournament />
+      <SS23 />
+      {/* <Tournament /> */}
+
     </>
   );
 }
