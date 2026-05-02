@@ -1,0 +1,148 @@
+// --- Variables ---
+$bg-dark: #050505;
+$gold: #ffcc00;
+$silver: #e0e0e0;
+$electric-blue: #0077ff;
+$purple-accent: #8a2be2;
+$white: #ffffff;
+$hex-border: rgba($electric-blue, 0.8);
+
+// --- Layout ---
+.thumbnail-canvas {
+  width: 1280px;
+  height: 720px;
+  background: $bg-dark;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Arial Black', sans-serif;
+  color: $white;
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba($purple-accent, 0.1) 0%, transparent 70%);
+  
+  .spotlight {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse at center, rgba($electric-blue, 0.2), transparent 80%);
+  }
+}
+
+// --- Typography ---
+.header-section {
+  position: relative;
+  margin-top: 30px;
+  text-align: center;
+  z-index: 10;
+
+  .main-title {
+    font-size: 85px;
+    margin: 0;
+    letter-spacing: -2px;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+    
+    .silver { color: $silver; filter: drop-shadow(0 0 5px white); }
+    .gold { color: $gold; filter: drop-shadow(0 0 10px $gold); }
+  }
+
+  .branding {
+    font-size: 22px;
+    letter-spacing: 4px;
+    margin-top: -10px;
+    
+    .gold-text { color: $gold; font-weight: bold; }
+  }
+}
+
+// --- Honeycomb Grid ---
+.content-wrap {
+  position: relative;
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.honeycomb-container {
+  display: grid;
+  grid-template-columns: repeat(10, 50px); // 4-5-4-5 logic via offset
+  gap: 15px;
+  margin-top: 20px;
+  z-index: 5;
+  
+  // Custom 4-5-4-5 logic using specific positioning if needed
+  // Simplification: Standard wrap with flex
+  display: flex;
+  flex-wrap: wrap;
+  width: 700px;
+  justify-content: center;
+}
+
+.hexagon {
+  width: 100px;
+  height: 110px;
+  background: $hex-border;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  box-shadow: 0 0 15px $hex-border;
+
+  .hex-inner {
+    width: 92%;
+    height: 92%;
+    background: linear-gradient(135deg, #1a1a1a, #000);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .logo-placeholder {
+        width: 60px;
+        height: 60px;
+        background: rgba($white, 0.1);
+        border-radius: 50%;
+    }
+  }
+}
+
+// --- Players ---
+.player {
+  position: absolute;
+  z-index: 8;
+  filter: drop-shadow(0 0 20px rgba($electric-blue, 0.5));
+
+  img {
+    height: 450px;
+    object-fit: contain;
+  }
+
+  &.player-tl { top: -20px; left: -20px; }
+  &.player-bl { bottom: -20px; left: -20px; }
+  &.player-tr { top: -20px; right: -20px; transform: scaleX(-1); }
+  &.player-br { bottom: -20px; right: -20px; transform: scaleX(-1); }
+}
+
+.trophy-silhouette {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: rgba($gold, 0.05);
+    mask: url('https://cdn-icons-png.flaticon.com/512/3112/3112946.png') no-repeat center;
+    mask-size: contain;
+    z-index: -1;
+}
