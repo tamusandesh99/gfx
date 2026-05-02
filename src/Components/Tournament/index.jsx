@@ -5,7 +5,7 @@ import pubgLogo from "../../../public/pics/pubg-logo-b.png";
 import sponsors from "../../../public/pics/sponsor-b.png";
 import ngclogo from "../../../public/pics/logo2.png";
 import ngclogoEsports from "../../../public/pics/logo1.png";
-import buggy from "../../../public/pics/buggy.jpg";
+import trophy from "../../../public/pics/ngc-trophy-png.png";
 import r1 from "../../../public/pics/respect.png";
 import r2 from "../../../public/pics/roster2-png.png";
 import bg from "../../../public/pics/bg8.jpg";
@@ -15,6 +15,7 @@ const Tournament = () => {
     <div className="banner-container">
       <div className="bg-image" style={{ backgroundImage: `url(${bg})` }} />
         <div className="bg-overlay" />
+        <img src={trophy} alt="" className="bg-trophy" />
 
       {/* Corner Logos */}
       <img src={pubgLogo} alt="" className="corner tl" />
@@ -26,7 +27,7 @@ const Tournament = () => {
         {/* Left Side: Information */}
         <div className="info-section">
           <div className="sub-header-bar">
-            <span>NGC ESPORTS</span>
+            <span>NGC TOURNAMENT</span>
           </div>
 
           <h1 className="main-title">
@@ -35,22 +36,23 @@ const Tournament = () => {
             <span className="heavy">BLITZ</span>
           </h1>
 
-          <div className="meta-info">
-            <div className="stat-box">
-              <span className="label">PRIZE</span>
-              <span className="val">$150</span>
-            </div>
-            <div className="stat-box">
-              <span className="label">FREE REG</span>
-              <span className="val">APRIL 30</span>
-            </div>
-          </div>
+<div className="meta-info">
+  <div className="stat-ribbon">
+    <span className="label">PRIZE</span>
+    <span className="val">€150</span>
+  </div>
 
-          <div className="tags">
+  <div className="stat-ribbon">
+    <span className="label">ENTRY</span>
+    <span className="val">FREE REG</span>
+  </div>
+</div>
+
+          {/* <div className="tags">
             <span>LIVE PRODUCTION</span>
-            <span>3 SEMI FINALS</span>
+            <span>SEMI FINALS</span>
             <span>MAY 17,18,19</span>
-          </div>
+          </div> */}
 
           <p className="agency-tag">PRESENTED BY NGC ESPORTS</p>
         </div>

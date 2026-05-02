@@ -20,8 +20,8 @@ function App() {
       {/* <MVP2 /> */}
       {/* <Daily20 />  */}
       {/* <Daily23 />  */}
-      <SS20 />  
-      {/* <Tournament /> */}
+      {/* <SS20 />   */}
+      <Tournament />
     </>
   );
 }
