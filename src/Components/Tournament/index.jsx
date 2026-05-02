@@ -41,15 +41,15 @@ const Tournament = () => {
               <span className="val">$150</span>
             </div>
             <div className="stat-box">
-              <span className="label">REG DATE</span>
+              <span className="label">FREE REG</span>
               <span className="val">APRIL 30</span>
             </div>
           </div>
 
           <div className="tags">
             <span>LIVE PRODUCTION</span>
-            <span>FREE ENTRY</span>
-            <span>64 TEAMS</span>
+            <span>3 SEMI FINALS</span>
+            <span>MAY 17,18,19</span>
           </div>
 
           <p className="agency-tag">PRESENTED BY NGC ESPORTS</p>
