@@ -6,7 +6,7 @@ import sponsors from "../../../public/pics/sponsor-b.png";
 import ngclogo from "../../../public/pics/logo2.png";
 import ngclogoEsports from "../../../public/pics/logo1.png";
 import trophy from "../../../public/pics/ngc-trophy-png.png";
-import r1 from "../../../public/pics/respect.png";
+import r1 from "../../../public/pics/roster13-png.png";
 import r2 from "../../../public/pics/roster2-png.png";
 import bg from "../../../public/pics/bg8.jpg";
 

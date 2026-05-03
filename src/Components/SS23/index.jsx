@@ -1,11 +1,11 @@
 import React from "react";
 import "./index.scss";
 import r1 from "../../../public/pics/roster1-png.png";
-import r2 from "../../../public/pics/roster2-png.png";
-import r3 from "../../../public/pics/meow.png";
+import r2 from "../../../public/pics/roster16-png.png";
+import r3 from "../../../public/pics/roster12-png.png";
 import r4 from "../../../public/pics/roster6-png.png";
-import pubgLogo from "../../../public/pics/pubg-logo-b.png";
-import sponsors from "../../../public/pics/sponsor-b.png";
+import pubgLogo from "../../../public/pics/pubg-logo-w.png";
+import sponsors from "../../../public/pics/sponsor-w.png";
 import ngclogo from "../../../public/pics/logo2.png";
 import ngclogoEsports from "../../../public/pics/logo1.png";
 import bg from "../../../public/pics/bg4.jpg";

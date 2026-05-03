@@ -4,7 +4,7 @@ import "./index.scss";
 import r1 from "../../../public/pics/roster10-png.png";
 import r2 from "../../../public/pics/roster4-png.png";
 import r3 from "../../../public/pics/roster11-png.png";
-import r4 from "../../../public/pics/nati.png";
+import r4 from "../../../public/pics/roster15-png.png";
 
 // import r1 from "../../../public/pics/roster10-png.png";
 // import r2 from "../../../public/pics/roster6-png.png";
