@@ -1,0 +1,745 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap");
+
+.ngc-price-wrap {
+  --bg: #171a21;
+  --ink: #f4f1eb;
+  --muted: #9b9da5;
+
+  --good: #1cff78;
+  --bad: #cfc2c3;
+
+  position: relative;
+  overflow: hidden;
+
+  width: 980px;
+
+  padding: 56px 56px 48px;
+
+  background:
+    radial-gradient(circle at 8% 0%, rgba(255, 55, 125, 0.13), transparent 30%),
+    radial-gradient(
+      circle at 92% 8%,
+      rgba(45, 105, 255, 0.14),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(125, 70, 255, 0.08),
+      transparent 38%
+    ),
+    #171a21;
+
+  font-family: "Karla", sans-serif;
+  color: var(--ink);
+  line-height: 1;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* =====================================================
+   BACKGROUND
+   ===================================================== */
+
+.ghost-text {
+  position: absolute;
+  z-index: 0;
+
+  top: 55px;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+
+  font-size: 130px;
+  line-height: 1;
+
+  letter-spacing: 4px;
+
+  color: transparent;
+
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.045);
+
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.grid-lines {
+  position: absolute;
+
+  z-index: 0;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  pointer-events: none;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.price-header {
+  position: relative;
+  z-index: 1;
+
+  text-align: center;
+
+  margin-bottom: 32px;
+}
+
+.brandline {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-bottom: 16px;
+}
+
+.brandline-bar {
+  width: 80px;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #f10ff1,
+    #b171f5,
+    transparent
+  );
+}
+
+.brandline-diamond {
+  width: 9px;
+  height: 9px;
+
+  transform: rotate(45deg);
+
+  background: #ffa0f7cc;
+
+  flex-shrink: 0;
+
+  box-shadow: 0 0 12px rgba(241, 187, 206, 0.5);
+}
+
+.brandline-text {
+  font-weight: 700;
+
+  font-size: 17px;
+  line-height: 21px;
+
+  letter-spacing: 5px;
+
+  color: #a8aab3;
+
+  white-space: nowrap;
+}
+
+.price-title {
+  margin: 0;
+
+  font-family: "Fraunces", serif;
+
+  font-weight: 600;
+
+  font-size: 60px;
+  line-height: 60px;
+
+  background: linear-gradient(100deg, #3f82ff, #8d4cff, #ff3d91, #ff9b32);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  filter: drop-shadow(0 4px 18px rgba(255, 61, 145, 0.12));
+}
+
+.price-sub {
+  margin: 10px 0 0;
+
+  font-weight: 700;
+
+  font-size: 13px;
+  line-height: 17px;
+
+  letter-spacing: 3px;
+
+  color: #858894;
+}
+
+/* =====================================================
+   QUICK INFO
+   DARK BLUE
+   ===================================================== */
+
+.quick-info {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  gap: 12px;
+
+  margin-bottom: 24px;
+}
+
+.info-chip {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 17px 18px;
+
+  border-radius: 12px;
+
+  background: linear-gradient(145deg, #26334c, #1d273a);
+
+  border: 2px solid #354a6c;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.info-label {
+  font-weight: 700;
+
+  font-size: 10.5px;
+  line-height: 13px;
+
+  letter-spacing: 2px;
+
+  color: #69b5ff;
+
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-family: "Fraunces", serif;
+
+  font-weight: 600;
+
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #ffffff;
+}
+
+/* =====================================================
+   SINGLE ENTRY
+   BURNT ORANGE
+   ===================================================== */
+
+.single-entry-section {
+  margin-bottom: 36px;
+}
+
+.single-entry-grid {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+}
+
+.entry-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  padding: 18px 16px;
+
+  border-radius: 12px;
+
+  background: linear-gradient(145deg, #713d27, #542d20);
+
+  border: 2px solid #a85a34;
+
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+.entry-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+  top: 0;
+
+  height: 4px;
+
+  background: #ff9f1c;
+
+  box-shadow: 0 0 12px rgba(255, 159, 28, 0.35);
+}
+
+.entry-name {
+  font-family: "Fraunces", serif;
+
+  font-weight: 600;
+
+  font-size: 15px;
+  line-height: 19px;
+
+  color: #fff1dc;
+}
+
+.entry-note {
+  font-size: 11.5px;
+  line-height: 15px;
+
+  color: #d9ad8f;
+}
+
+.entry-price {
+  margin-top: 8px;
+
+  font-family: "Fraunces", serif;
+
+  font-weight: 700;
+
+  font-size: 27px;
+  line-height: 30px;
+
+  color: #ffe45c;
+
+  text-shadow: 0 0 12px rgba(255, 220, 60, 0.35);
+}
+
+/* =====================================================
+   SECTION HEADINGS
+   ===================================================== */
+
+.section-heading {
+  position: relative;
+  z-index: 1;
+
+  font-family: "Fraunces", serif;
+
+  font-weight: 600;
+
+  font-size: 19px;
+  line-height: 24px;
+
+  color: #f0edf0;
+
+  margin: 0 0 16px;
+
+  padding-left: 14px;
+
+  border-left: 5px solid #ff397f;
+}
+
+.tiers-section .section-heading {
+  border-left-color: #3f82ff;
+}
+
+/* =====================================================
+   TIERS
+   ===================================================== */
+
+.tiers-row {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  gap: 10px;
+
+  align-items: stretch;
+}
+
+.tier-card {
+  position: relative;
+
+  flex: 1;
+
+  min-width: 0;
+
+  min-height: 400px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 22px 15px;
+
+  border-radius: 14px;
+
+  border: 2px solid transparent;
+}
+
+.tier-name {
+  font-weight: 700;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+}
+
+.tier-price {
+  font-family: "Fraunces", serif;
+
+  font-weight: 600;
+
+  font-size: 30px;
+  line-height: 35px;
+
+  margin-top: 4px;
+}
+
+.tier-divider {
+  height: 1px;
+
+  margin: 16px 0;
+
+  background: currentColor;
+
+  opacity: 0.22;
+}
+
+.tier-features {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  li {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 6px;
+
+    font-size: 12.5px;
+
+    line-height: 16px;
+  }
+}
+
+.feature-icon {
+  font-size: 13px;
+
+  line-height: 16px;
+
+  flex-shrink: 0;
+
+  font-weight: 700;
+}
+
+.is-included .feature-icon {
+  color: var(--good);
+}
+
+.is-excluded {
+  opacity: 0.45;
+
+  .feature-icon {
+    color: var(--bad);
+  }
+}
+
+/* =====================================================
+   MOST POPULAR
+   FLOATING LABEL ABOVE TIER 4
+   ===================================================== */
+
+.tier-card--t4::before {
+  content: "MOST POPULAR";
+
+  position: absolute;
+
+  top: -25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 5px 12px;
+
+  border-radius: 999px;
+
+  background: #3b3b37;
+
+  border: 2px solid #ca32c5;
+
+  color: #f2f6eb;
+
+  font-family: "Karla", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 5px 14px rgba(228, 146, 255, 0.5),
+    0 0 14px rgba(249, 179, 252, 0.3);
+
+  z-index: 5;
+}
+
+/* =====================================================
+   TIER 1
+   CONCRETE
+   ===================================================== */
+
+.tier-card--t1 {
+  background: linear-gradient(145deg, #c9c9c4, #a9aaa7);
+
+  border-color: #858681;
+
+  color: #25262a;
+
+  .tier-name,
+  .tier-price {
+    color: #38393c;
+  }
+
+  .tier-features {
+    color: #303136;
+  }
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.24);
+}
+
+/* =====================================================
+   TIER 2
+   ICE BLUE
+   ===================================================== */
+
+.tier-card--t2 {
+  background: linear-gradient(145deg, #9bdff0, #64bfd7);
+
+  border-color: #3d9fb9;
+
+  color: #102c36;
+
+  .tier-name,
+  .tier-price {
+    color: #12495b;
+  }
+
+  .tier-features {
+    color: #163b46;
+  }
+
+  box-shadow:
+    0 12px 26px rgba(38, 145, 180, 0.28),
+    0 0 18px rgba(73, 193, 225, 0.08);
+}
+
+/* =====================================================
+   TIER 3
+   ELECTRIC LIME
+   ===================================================== */
+
+.tier-card--t3 {
+  background: linear-gradient(145deg, #d9f66a, #9fd63c);
+
+  border-color: #75a928;
+
+  color: #202d0b;
+
+  .tier-name,
+  .tier-price {
+    color: #304b0b;
+  }
+
+  .tier-features {
+    color: #26370d;
+  }
+
+  /*
+    Darker check marks so they don't disappear
+    into the lime background.
+  */
+  .is-included .feature-icon {
+    color: #075c38;
+  }
+
+  .is-excluded .feature-icon {
+    color: #b52b3d;
+  }
+
+  box-shadow:
+    0 14px 30px rgba(119, 174, 31, 0.32),
+    0 0 24px rgba(183, 232, 67, 0.15);
+}
+
+/* =====================================================
+   TIER 4
+   HOT PINK
+   ===================================================== */
+
+.tier-card--t4 {
+  background: linear-gradient(145deg, #f28abd, #d95b99);
+
+  border-color: #b73f7d;
+
+  color: #40152c;
+
+  .tier-name,
+  .tier-price {
+    color: #65143e;
+  }
+
+  .tier-features {
+    color: #551b39;
+  }
+
+  box-shadow:
+    0 14px 32px rgba(210, 55, 130, 0.3),
+    0 0 20px rgba(238, 91, 163, 0.1);
+}
+
+/* =====================================================
+   TIER 5
+   ORANGE / GOLD
+   ===================================================== */
+
+.tier-card--t5 {
+  background: linear-gradient(145deg, #ffbd62, #ed8735);
+
+  border-color: #cf6720;
+
+  color: #45220e;
+
+  .tier-name {
+    color: #67300d;
+  }
+
+  .tier-price {
+    color: #ffffff;
+
+    text-shadow: 0 2px 8px rgba(100, 40, 0, 0.25);
+  }
+
+  .tier-features {
+    color: #51280f;
+  }
+
+  box-shadow:
+    0 16px 36px rgba(220, 105, 25, 0.34),
+    0 0 24px rgba(255, 163, 50, 0.12);
+}
+
+/* =====================================================
+   TIER 6
+   BLACK / GOLD / WHITE
+   PREMIUM
+   ===================================================== */
+
+.tier-card--t6 {
+  background: linear-gradient(145deg, #2d2f36 0%, #17181c 45%, #0c0d10 100%);
+
+  border-color: #f0c84b;
+
+  color: #f7f7f7;
+
+  .tier-name {
+    color: #f1cf55;
+  }
+
+  .tier-price {
+    background: linear-gradient(100deg, #dcae2f, #f7d96a, #fff7b2, #ffffff);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    text-shadow: none;
+  }
+
+  .tier-divider {
+    background: #f0ce5a;
+
+    opacity: 0.4;
+  }
+
+  .tier-features {
+    color: #ededed;
+  }
+
+  .is-excluded {
+    color: #858585;
+  }
+
+  .feature-icon {
+    color: #7dff72;
+  }
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(255, 202, 55, 0.16),
+    0 0 55px rgba(255, 190, 40, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(240, 200, 75, 0.12);
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.price-footer {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding-top: 20px;
+
+  margin-top: 8px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+  height: 40px;
+}
+
+.footer-text {
+  font-weight: 600;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+
+  color: #858791;
+}

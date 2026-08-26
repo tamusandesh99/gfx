@@ -1,0 +1,390 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap");
+
+.pmss-wrap {
+  --teal: #2dd9b9;
+  --teal-deep: #0f6e5f;
+  --mint: #baffe3;
+  --blue: #3ea6ff;
+  --violet: #8b6bff;
+  --pink: #ff5fa8;
+  --amber: #ffb84d;
+  --bg: #04120f;
+  --panel: #0a201c;
+  --panel-alt: #0e2925;
+  --row: #28544b;
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --muted: #7fa79c;
+
+  position: relative;
+  overflow: hidden;
+  width: 1900px;
+  padding: 40px 52px 48px;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(45, 217, 185, 0.16), transparent 40%),
+    radial-gradient(circle at 90% 0%, rgba(139, 107, 255, 0.14), transparent 35%),
+    radial-gradient(circle at 50% 60%, rgba(255, 95, 168, 0.06), transparent 45%),
+    var(--bg);
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  line-height: 1;
+
+  * { box-sizing: border-box; }
+}
+
+/* ---------- HOLLOW BACKGROUND TITLE ---------- */
+
+.pmss-ghost {
+  position: absolute;
+  z-index: 0;
+  top: -40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: "Sora", sans-serif;
+  font-weight: 800;
+  font-size: 220px;
+  line-height: 1;
+  letter-spacing: 8px;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.blob {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.3;
+  pointer-events: none;
+
+  &--a { width: 420px; height: 420px; top: -180px; right: -120px; background: var(--teal); }
+  &--b { width: 300px; height: 300px; bottom: -140px; left: -80px; background: var(--violet); }
+}
+
+.grid-lines {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 46px 46px;
+  pointer-events: none;
+}
+
+/* ---------- TOP BAR ---------- */
+
+.pmss-topbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.brand-slot,
+.event-slot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+
+  &--alt { background: linear-gradient(135deg, var(--pink), var(--amber)); }
+}
+
+/* ---------- CENTERED BRAND LINE ---------- */
+
+.pmss-brandline {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.brandline-bar {
+  width: 140px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--teal), var(--violet), transparent);
+  opacity: 0.7;
+}
+
+.brandline-diamond {
+  width: 9px;
+  height: 9px;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, var(--teal), var(--pink));
+  flex-shrink: 0;
+}
+
+.brandline-text {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: 7px;
+  background: linear-gradient(90deg, var(--teal), var(--mint) 45%, var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+/* ---------- HERO ---------- */
+
+.pmss-hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+
+  .badge-year {
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 2px;
+    color: var(--muted);
+  }
+  .badge-tag {
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--violet), var(--pink));
+    color: #14071f;
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 28px;
+    letter-spacing: 2px;
+  }
+}
+
+.hero-title {
+  margin: 0;
+  font-family: "Sora", sans-serif;
+  font-weight: 800;
+  font-size: 84px;
+  line-height: 84px;
+  letter-spacing: 1px;
+  background: linear-gradient(100deg, #fff 15%, var(--teal) 55%, var(--pink) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-sub {
+  margin: 10px 0 0;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 3px;
+  color: var(--muted);
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 14px 26px;
+  border-radius: 16px;
+  background: var(--panel-alt);
+  border: 1px solid rgba(255, 184, 77, 0.25);
+
+  .stage-day {
+    font-family: "Sora", sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 30px;
+    color: var(--amber);
+  }
+  .stage-name {
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 2px;
+    color: var(--muted);
+  }
+}
+
+/* ---------- TABLE FRAME ---------- */
+
+.pmss-frame {
+  position: relative;
+  z-index: 1;
+  border-radius: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 16px 0;
+}
+
+.pmss-columns {
+  display: flex;
+}
+
+.pmss-col {
+  flex: 1;
+  padding: 8px 28px;
+}
+
+.col-divider {
+  width: 1px;
+  background: var(--line);
+  margin: 8px 0;
+}
+
+.pmss-thead,
+.pmss-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 90px 90px 90px 100px;
+  align-items: center;
+}
+
+.pmss-thead {
+  padding: 6px 18px 14px;
+  font-family: "Sora", sans-serif;
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+
+.pmss-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pmss-row {
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(45, 217, 185, 0.16), rgba(45, 217, 185, 0.05)), var(--panel-alt);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cell {
+  font-size: 19px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.cell--rank { display: flex; }
+
+.rank-chip {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 22px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: linear-gradient(120deg, var(--teal), var(--blue));
+  color: #04120f;
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
+}
+
+// cycle rank-chip colors every 4 rows for variety
+.pmss-row:nth-child(4n+2) .rank-chip {
+  background: linear-gradient(120deg, var(--violet), var(--pink));
+  color: #14071f;
+}
+.pmss-row:nth-child(4n+3) .rank-chip {
+  background: linear-gradient(120deg, var(--amber), var(--pink));
+  color: #2a1400;
+}
+.pmss-row:nth-child(4n+4) .rank-chip {
+  background: linear-gradient(120deg, var(--blue), var(--teal));
+  color: #04120f;
+}
+
+.cell--team {
+  min-width: 0;
+}
+
+.cell--stat,
+.cell--total {
+  justify-content: center;
+  text-align: center;
+}
+
+.cell--total {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  color: var(--amber);
+}
+
+/* ---------- TICKER ---------- */
+
+.pmss-ticker {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 25px;
+  padding: 16px 28px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, var(--violet), var(--blue));
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 1px;
+
+  .ticker-live {
+    padding: 4px 14px;
+    border-radius: 999px;
+    background: var(--amber);
+    color: #2a1400;
+  }
+  .ticker-date { color: rgba(255, 255, 255, 0.85); }
+  .ticker-brand { margin-left: auto; color: rgba(255, 255, 255, 0.6); }
+}
+
+/* ---------- FOOTER ---------- */
+
+.pmss-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    margin-top: 40px;
+    height: 60px;
+  }
+}
